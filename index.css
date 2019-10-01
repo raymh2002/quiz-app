@@ -42,7 +42,7 @@ body {
     margin: 0 auto;
 }
 
-.answer-item:hover {
+.answer-item:hover, .answer-item > div:hover, .answer-item > div > input:hover, .answer-item > div > label:hover {
     cursor: pointer;
 }
 
