@@ -120,26 +120,39 @@ fieldset {
 
 /* Styling for testResults.html */
 
-.results-question-answer-container {
+.results-container {
     /*max-width: 600px;*/
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    /*max-width: 80%;*/
     margin: 0 auto;
 }
 
-.results-question-answer-list {
+.results-items-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 600px;
-    /*margin: 10px auto;*/
+    /*width: 600px;*/
+    width: 80%;
     padding: 0;
     list-style-type: none;
+    border: 2px solid gray;
+    align-items: center;
+    flex-basis: 9%;
 }
 
-.results-question-answer-item {
-    flex-basis: 9%;
-    height: 2px;
-    border: 2px solid blue;
+.results-question-response-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    border: 2px solid gray;
+}
+
+.results-question-response-item li {
+    width: 95%;
+    border: 1px dotted gray;
 }
