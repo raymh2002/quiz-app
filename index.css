@@ -87,7 +87,7 @@ footer > div:first-of-type {
 }
 
 
-/* Styling for home.html*/
+/* Styling for index.html*/
 
 .home-page-container {
     display: flex;
@@ -116,4 +116,30 @@ fieldset {
 
 .start-quiz-submit:hover {
     cursor: pointer;
+}
+
+/* Styling for testResults.html */
+
+.results-question-answer-container {
+    /*max-width: 600px;*/
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.results-question-answer-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 600px;
+    /*margin: 10px auto;*/
+    padding: 0;
+    list-style-type: none;
+}
+
+.results-question-answer-item {
+    flex-basis: 9%;
+    height: 2px;
+    border: 2px solid blue;
 }
