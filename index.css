@@ -6,87 +6,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.quiz-status-container {
-    max-width: 600px;
-    margin: 40px auto;
-}
-
-.quiz-status-display {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    padding: 0;
-    margin: 10px auto;
-    /*font-size: 0; css trick - remove space between inline-block elements*/
-}
-
-.quiz-status-item {
-    flex-basis: 30%;
-    border: 1px solid grey;
-    padding: 20px;
-    text-align: center;
-    align-items: center;
-}
-
-.question-answer-container{
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.question {
-    text-align: center;
-}
-
-.question > span {
-    text-align: center;
-    margin: 0 auto;
-}
-
-.answer-item:hover, .answer-item > div:hover, .answer-item > div > input:hover, .answer-item > div > label:hover {
-    cursor: pointer;
-}
-
-.answer-item {
-    width: 250px;
-    margin: 0 auto 20px;
-}
-
-.answers-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.answers-list > li {
-    margin-bottom: 20px;
-    border: 1px solid grey;
-    padding: 20px;
-}
-
-footer > div:first-of-type {
-    text-align: center;
-}
-
-.quiz-footer-progress-display-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.quiz-footer-progress-display {
-    display: flex;
-    justify-content: space-between;
-    width: 600px;
-    /*margin: 10px auto;*/
-    padding: 0;
-    list-style-type: none;
-}
-
-.quiz-footer-progress-display-item {
-    flex-basis: 9%;
-    height: 2px;
-    border: 2px solid blue;
-}
-
-
 /* Styling for index.html*/
 
 .home-page-container {
@@ -118,15 +37,112 @@ fieldset {
     cursor: pointer;
 }
 
-/* Styling for testResults.html */
 
-.results-container {
-    /*max-width: 600px;*/
+
+
+/* Styling for quizProgress.html */
+
+.quiz-progress-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 800px;
+    height: 95vh;
+    margin: 10px auto;
+    border: 1px solid gray;
+}
+
+.quiz-status-container {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.quiz-status-display {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px auto;
+}
+
+.quiz-status-item {
+    flex-basis: 30%;
+    text-align: center;
+    border: 1px solid grey;
+    padding: 20px;
+}
+
+.question-answer-container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    /*max-width: 80%;*/
+    width: 600px;
+}
+
+.question {
+    max-width: 95%;
+    margin-bottom: 20px;
+}
+
+.answers-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.answer-item {
+    width: 95%;
+    border: 1px solid grey;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.answer-item:hover, .answer-item > div:hover, .answer-item > div > input:hover, .answer-item > div > label:hover {
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quiz-footer-progress-display-container {
+    max-width: 600px;
+}
+
+.quiz-footer-progress-display {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.quiz-footer-progress-display-item {
+    flex-basis: 9%;
+    height: 2px;
+    border: 2px solid blue;
+}
+
+
+
+
+
+/* Styling for testResults.html */
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
 }
 
@@ -134,7 +150,6 @@ fieldset {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /*width: 600px;*/
     width: 80%;
     padding: 0;
     list-style-type: none;
