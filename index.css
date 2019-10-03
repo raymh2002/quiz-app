@@ -147,6 +147,15 @@ footer {
     margin: 0 auto;
 }
 
+.retake-quiz {
+    padding: 3px 7px;
+    margin-bottom: 7px;
+}
+
+.retake-quiz:hover {
+    cursor: pointer;
+}
+
 .results-items-container {
     display: flex;
     flex-direction: column;
@@ -174,4 +183,18 @@ footer {
 .results-question-response-item li {
     width: 95%;
     border: 1px dotted gray;
+    /*list-style-type: none;*/
+}
+
+.results-correct-response-item {
+    /*list-style-image: url("./images/Check_48x48.png");*/
+    list-style-image: url("./images/Arrow/Arrow_16x16.png");
+}
+
+.js-correct-answer {
+    list-style-image: url("./images/Check/Check_16x16.png");
+}
+
+.js-incorrect-answer {
+    list-style-image: url("./images/Delete/Delete_16x16.png");
 }
