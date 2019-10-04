@@ -152,6 +152,10 @@ footer {
     margin: 30px;
 }
 
+.quiz-answer-review:hover {
+    cursor: pointer;
+}
+
 
 /* Styling for quizAnswerReview.html */
 
