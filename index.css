@@ -133,10 +133,27 @@ footer {
 }
 
 
+/* Styling for quizResults.html*/
+
+.quiz-results-container {
+    width: 600px;
+    height: 500px;
+    margin: 10% auto;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quiz-score {
+    padding: 20px;
+    border: 1px solid gray;
+    margin: 30px;
+}
 
 
-
-/* Styling for testResults.html */
+/* Styling for quizAnswerReview.html */
 
 .results-container {
     display: flex;
