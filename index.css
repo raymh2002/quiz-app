@@ -219,3 +219,16 @@ footer {
 .js-incorrect-answer {
     list-style-image: url("./images/Delete/Delete_16x16.png");
 }
+
+/* JS styling */
+
+/* display X and background color red */
+.js-incorrect-answer{
+    background-color: red;
+}
+
+
+/* display "check-mark" and background color green */
+.js-correct-answer {
+   background-color: lawngreen;
+}
