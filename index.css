@@ -159,7 +159,7 @@ footer {
 
 /* Styling for quizAnswerReview.html */
 
-.results-container {
+.review-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -177,7 +177,7 @@ footer {
     cursor: pointer;
 }
 
-.results-items-container {
+.review-items-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -190,7 +190,7 @@ footer {
     /*flex-basis: 9%;*/
 }
 
-.results-question-response-item {
+.review-question-response-item {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -201,7 +201,7 @@ footer {
     border: 2px solid gray;
 }
 
-.results-question-response-item li {
+.review-question-response-item li {
     width: 95%;
     border: 1px dotted gray;
     /*list-style-type: none;*/
