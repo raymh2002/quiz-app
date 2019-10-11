@@ -207,28 +207,28 @@ footer {
     /*list-style-type: none;*/
 }
 
-.results-correct-response-item {
-    /*list-style-image: url("./images/Check_48x48.png");*/
-    list-style-image: url("./images/Arrow/Arrow_16x16.png");
-}
+/*.results-correct-response-item {*/
+/*    !*list-style-image: url("./images/Check_48x48.png");*!*/
+/*    list-style-image: url("./images/Arrow/Arrow_16x16.png");*/
+/*}*/
 
-.js-correct-answer {
-    list-style-image: url("./images/Check/Check_16x16.png");
-}
+/*.js-correct-answer {*/
+/*    list-style-image: url("./images/Check/Check_16x16.png");*/
+/*}*/
 
-.js-incorrect-answer {
-    list-style-image: url("./images/Delete/Delete_16x16.png");
-}
+/*.js-incorrect-answer {*/
+/*    list-style-image: url("./images/Delete/Delete_16x16.png");*/
+/*}*/
 
 /* JS styling */
 
 /* display X and background color red */
-.js-incorrect-answer{
-    background-color: red;
-}
+/*.js-incorrect-answer{*/
+/*    background-color: red;*/
+/*}*/
 
 
 /* display "check-mark" and background color green */
-.js-correct-answer {
-   background-color: lawngreen;
-}
+/*.js-correct-answer {*/
+/*   background-color: lawngreen;*/
+/*}*/

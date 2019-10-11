@@ -35,7 +35,13 @@
 // render the qIP page beginning with question 1
 
 
+// quizInProgress
 
+// .js-correct-answer
+$(".js-correct-answer").css({'list-style-image': 'url("./images/Check/Check_16x16.png")',  'background-color': 'lawngreen'})
+    // .js-incorrect-answer
+$(".js-incorrect-answer").css({'list-style-image': 'url("./images/Delete/Delete_16x16.png")', 'background-color': 'red'})
 
-
+// .results-correct-response-item
+$(".results-correct-response-item").css({'list-style-image': 'url("./images/Arrow/Arrow_16x16.png")'})
 
