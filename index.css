@@ -103,6 +103,15 @@ fieldset {
     margin-bottom: 20px;
 }
 
+.answer-item > div > input {
+    display: none;
+}
+
+.answer-item > input {
+    display: none;
+}
+
+
 .answer-item:hover, .answer-item > div:hover, .answer-item > div > input:hover, .answer-item > div > label:hover {
     cursor: pointer;
 }
@@ -207,10 +216,10 @@ footer {
     /*list-style-type: none;*/
 }
 
-/*.results-correct-response-item {*/
-/*    !*list-style-image: url("./images/Check_48x48.png");*!*/
+.results-correct-response-item {
+    list-style-image: url("./images/Arrow/Arrow_32x32.png");
 /*    list-style-image: url("./images/Arrow/Arrow_16x16.png");*/
-/*}*/
+}
 
 /*.js-correct-answer {*/
 /*    list-style-image: url("./images/Check/Check_16x16.png");*/
