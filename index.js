@@ -45,3 +45,11 @@
 // *** .results-correct-response-item ***
     // $(".results-correct-response-item").css({'list-style-image': 'url("./images/Arrow/Arrow_16x16.png")'})
 
+// *** js to trigger select of input radio button ***
+$(function () {
+    $(".answers-list").on("click", function () {
+
+    })
+})
+
+
