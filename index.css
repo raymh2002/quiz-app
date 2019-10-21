@@ -103,14 +103,14 @@ fieldset {
     margin-bottom: 20px;
 }
 
-.answer-item > div > input {
-    display: none;
-/*  visibility: hidden  */
-}
+/*.answer-item > div > input {*/
+/*    display: none;*/
+/*!*  visibility: hidden  *!*/
+/*}*/
 
 .answer-item > input {
-    display: none;
-    /*  visibility: hidden  */
+    /*display: none;*/
+    /*  visibility: hidden*/
 }
 
 

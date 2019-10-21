@@ -23,33 +23,36 @@
 </header>
 
 <div class="question-answer-container">
-    <form>
+    <form id="js-questionInProgress">
     <div class="question">Question</div>
-    <ul class="answers-list">
+    <ul id="answers-list" class="answers-list">
         <li class="answer-item js-correct-answer">
-            <div>
-                <input type="radio" id="answer1" name="answer1" value="answer1">
+<!--            li-Answer1-->
+<!--            <div>-->
+                <input type="radio" id="answer1" name="answer1" value="answer1" isCorrect=true selected=true>
                 <label for="answer1">Answer1</label>
-            </div>
+<!--            </div>-->
         </li>
         <li class="answer-item js-incorrect-answer">
-<!--            Answer 2 (text in list item)-->
-            <div>
-                <input type="radio" id="answer2" name="answer2" value="answer2">
+<!--            li-Answer2-->
+<!--            <div>-->
+                <input type="radio" id="answer2" name="answer2" value="answer2" isCorrect=false>
                 <label for="answer2">Answer2</label>
-            </div>
+<!--            </div>-->
         </li>
         <li class="answer-item results-correct-response-item">
-            <div>
-                <input type="radio" id="answer3" name="answer3" value="answer3">
+<!--            li-Answer3-->
+<!--            <div>-->
+                <input type="radio" id="answer3" name="answer3" value="answer3" isCorrect=false>
                 <label for="answer3">Answer3</label>
-            </div>
+<!--            </div>-->
         </li>
         <li class="answer-item">
-            <div>
-                <input type="radio" id="answer4" name="answer4" value="answer4">
+<!--            li-Answer4-->
+<!--            <div>-->
+                <input type="radio" id="answer4" name="answer4" value="answer4" isCorrect=false>
                 <label for="answer4">Answer4</label>
-            </div>
+<!--            </div>-->
         </li>
         <li class="next-question">
             <div>
@@ -89,9 +92,7 @@
 </footer>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="index.js"></script>
-<script>
-
-</script>
+<!--<script src="index.js"></script>-->
+<script src="quizInProgress.js"></script>
 </body>
 </html>
