@@ -29,5 +29,20 @@
     <div><a href="quizInProgress.html"><h1>Link to quizInProgress.html</h1></a></div>
     <div><a href="quizAnswerReview.html"><h1>Link to quizAnswerReview.html</h1></a> </div>
     <div><a href="quizResults.html"><h1>Link to quizResults.html</h1></a> </div>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="index.js"></script>
+<script>
+    $(function() {
+    $('.js-form').submit(event => {
+        // this stops the default form submission behavior
+        event.preventDefault();
+        const userTextElement = $(event.currentTarget).find('#user-text');
+        $(".js-display-user-text").text(`user text is:  ${userTextElement.val()}`);
+        userTextElement.val("");
+    });
+})</script>
 </body>
 </html>

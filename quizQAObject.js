@@ -1,4 +1,6 @@
-const quizQAObject={questionList:{
+const quizQAObject={
+    rndrQsnCount:5, // render question counter >> track current question number
+    questionList:{
         question1:{
             htmlQuestion:"What does HTML stand for?",
             htmlAnswers: {
@@ -128,12 +130,7 @@ const quizQAObject={questionList:{
             }
         },
         question6:{
-            htmlQuestion:"Which tag indicates an ordered list?",
-            htmlAnswers: {
-                answer1:{
-                    text: "<ol>",
-                    isCorrect: true,
-                    isSelected:false
+            htmlQuestion:"Which tag indicates an ordered list?", htmlAnswers: { answer1:{ text: "<ol>", isCorrect: true, isSelected:false
                 },
                 answer2:{
                     text: "<ordered-list>",
@@ -255,12 +252,94 @@ const quizQAObject={questionList:{
     }
 }
 
-let path = quizQAObject.questionList.question1.htmlAnswers.answer1;
 
-const Select = {
-    selectAnswer(){
-        this.isSelected = true;
+
+// ^^^^^ ABOVE THIS LINE IS THE QUESTION/ANSWER DATABASE ^^^^^^ DO NOT MODIFY!!!!
+let path = quizQAObject.questionList.question1.htmlAnswers.answer1;
+const select = {
+    selectAnswer(questionNum, answerNum){
+        this.questionList["question" + questionNum].htmlAnswers["answer" + answerNum].isSelected = true;
+    }
+};
+const rndrQsnCount = {
+    updateCounter(){
+        this.rndrQsnCount += 1;
+    },
+     getCount(){
+        return this.rndrQsnCount;
     }
 };
 
-Object.assign(quizQAObject, Select);
+
+
+
+
+// <<< vvv define methods for DB property retrieval vvv >>>>
+
+// let number=1;
+// function computePropertyName() { return "question" + number; } // works using variable number
+function computeQuestionNumberPropertyName(rndrQsnCount) { return "question" + rndrQsnCount; } // reference quizQAObject.rndrQsnCount
+function computeQNumberPropertyName(rndrQsnCount){ return "q" + rndrQsnCount; } //  reference quizQAObject.rndrQsnCount
+
+console.log(`rndrQsnCount property`);
+console.log(quizQAObject.rndrQsnCount);
+let {questionList:qL}=quizQAObject;//destructure quizQAObject & define questionList = qL
+console.log(`qL object`);
+console.log(qL);
+// let {question1:q1}=qL;//destructure quizQAObject>>qL & define questionList = q1
+let {[computeQuestionNumberPropertyName(quizQAObject.rndrQsnCount)]:qN}=qL;//destructure quizQAObject>>qL & define questionList = q1
+// let {[computeQuestionNumberPropertyName(quizQAObject.rndrQsnCount)]:Object.toString(qN())=qL;//destructure quizQAObject>>qL & define questionList = q1
+
+// let qN=computeQNumberPropertyName(quizQAObject.rndrQsnCount);
+console.log(`qN object!!`);
+console.log([computeQNumberPropertyName(quizQAObject.rndrQsnCount)]);
+// console.log(qN);
+// let {htmlAnswers:answers}=quizQAObject.questionList.question1;//destructure quizQAObject & define htmlAnswers = answers
+let {htmlAnswers:answers}=qN;//destructure quizQAObject>>qL>>q1 & define htmlAnswers = answers
+console.log(`answers object`);
+console.log(answers);
+
+// JavaScript: The Definitive Guide, 7th Edition 3.3.1 Objects As Associative Arrays
+// iterate over answers to get all 4 answers object properties
+
+// let addr = "";
+// for(let i = 1; i <= 4; i++) {
+//     addr += "answer" + i + ": " + "\n";
+//     addr += answers["answer" + i].isCorrect + "\n";
+//     addr += answers["answer" + i].isSelected + "\n";
+//     addr += answers["answer" + i].text + "\n";
+// }
+// console.log(addr);
+
+// vvv this snippet iterates over each answer in answers vvv
+let i=0;
+console.log(`iterate over answers for question${quizQAObject.rndrQsnCount}`)
+for(let answer in answers) {
+    i++;
+    console.log(answers["answer" + i]);
+}
+// ^^^ this snippet iterates over each answer in answers ^^^
+
+
+// ^^^^ define methods for DB property retrieval ^^^^
+
+
+
+
+
+// vvvv assign objects to the main quizQAObject vvvv
+
+Object.assign(quizQAObject, select);
+Object.assign(quizQAObject, rndrQsnCount);
+
+// ^^^^ assign objects to the main quizQAObject ^^^^
+
+
+
+
+quizQAObject.selectAnswer(2, 4); // call method Select.selectAnswer(questionNum, answerNum) to update isSelected:true/false (works)
+
+quizQAObject.updateCounter();
+
+// quizQAObject.getCount;
+
