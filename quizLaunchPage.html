@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Quiz App Home Page-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QuizAppHomePage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="quizQAObject.js"></script> <!--Question/Answer DataBase + getter/setters
+     for counter-->
+    <script type="text/javascript" src="renderReplacementHTML_library.js"></script> <!--library of HTML for
+    rendering application pages-->
+    <script type="text/javascript" src="handleEvents_library"></script> <!-- event functions library -->
+    <script src="index.js"></script>
+</head>
+<body>
+<div id="js-replace-html-wrapper">
+<div class="home-page-container">
+<header>
+    <h1 class="home-page-header-title"> HTML QUIZ APP</h1>
+</header>
+
+<div class="form-start-container">
+    <form class="js-form">
+        <fieldset>
+            <legend class="home-legend"><h2>Test Your HTML Knowledge</h2></legend>
+            <input type="submit" id="start-quiz-submit" class="start-quiz-submit" value="Click to Begin!">
+        </fieldset>
+    </form>
+</div>
+<!--</div>-->
+<!--    <div><a href="quizQuestionPage.html"><h1>Link to quizInProgress.html</h1></a></div>-->
+<!--    <div><a href="quizReviewPage.html"><h1>Link to quizAnswerReview.html</h1></a> </div>-->
+<!--    <div><a href="quizResultPage.html"><h1>Link to quizResults.html</h1></a> </div>-->
+<!--<script src="quizQAObject.js"></script> &lt;!&ndash;quizQAObject dataBase &ndash;&gt;-->
+</div>
+</div>
+</body>
+</html>

@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<!--QuizApp-InProgress Page-->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>QuizApp-InProgress</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="index.css" rel="stylesheet" type="text/css">
-</head>
-
-<body>
+const quizQuestionPageHTML = $(`
 <div class="quiz-progress-page-container">
 <header>
     <div class="quiz-status-container">
@@ -61,18 +49,6 @@
         </li>
     </ul>
     </form>
-</div>
-
-<!--  *** hide radio button while keeping functionality html CSS *** -->
-<!--    <input id=radio1 name=testradios type=radio><label for=radio1>radio1</label>-->
-<!--    <br>-->
-<!--    <input id=radio2 name=testradios type=radio><label for=radio2>radio2</label>-->
-<!-- *** hide radio button while keeping functionality CSS  ***  -->
-<!--  #radio1 {
-    display: none;
-    /*visibility: hidden;*/
-}  -->
-
 <footer >
     <div>progress bar</div>
     <div class="quiz-footer-progress-display-container">
@@ -89,10 +65,29 @@
         <li class="quiz-footer-progress-display-item"></li>
     </ul>
     </div>
-</footer>
+</footer>    
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--<script src="index.js"></script>-->
-<script src="quizInProgress.js"></script>
-</body>
-</html>
+`)
+
+const quizResultPageHTML = $(`
+<div class="quiz-results-container">
+    <h1>Quiz Results</h1>
+    <div class="quiz-score">QUIZ SCORE</div>
+    <input type="submit" class="retake-quiz" value="Retake Quiz">
+    <input type="submit" class="quiz-answer-review" value="Review Answers">
+</div>
+`)
+
+const quizReviewPageHTML = $(`
+<div class="review-container">
+    <h1>Quiz Answers Review</h1>
+    <input type="submit" class="retake-quiz" id="retake-quiz" value="Retake Quiz">
+    <div class="review-items-container">
+        <ul class="review-question-response-item">
+            <li class="results-question-item">HTML Question</li>
+            <li class="results-correct-response-item">Correct Response</li>
+            <li class="results-user-response-item js-incorrect-answer">User Response</li>
+        </ul>
+    </div>
+</div>
+`)

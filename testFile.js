@@ -4,10 +4,10 @@ const quizQAObject={
 
         get count() { return this.counter; },
         set count(next) {
-            this.counter += next; // increment counter
+            this.counter += next;
         },
         set resetCounter(reset){
-            this.counter = reset; // reset counter to 1
+            this.counter += reset;
         }
     },
     questionList:{
@@ -42,22 +42,22 @@ const quizQAObject={
         question2:{
             htmlQuestion:"Which HTML element will render the largest heading?:",
             htmlAnswers: {
-               answer1: {
+                answer1: {
                     text: "<h6>",
                     isCorrect: false,
                     isSelected:false
                 },
-               answer2: {
+                answer2: {
                     text: "<h2>",
                     isCorrect: false,
                     isSelected: false
                 },
-               answer3: {
+                answer3: {
                     text: "<h3>",
                     isCorrect: false,
                     isSelected: false
                 },
-               answer4: {
+                answer4: {
                     text: "<h1>",
                     isCorrect: true,
                     isSelected: false
@@ -262,117 +262,17 @@ const quizQAObject={
     }
 }
 
-
-
-// ^^^^^ ABOVE THIS LINE IS THE QUESTION/ANSWER DATABASE ^^^^^^ DO NOT MODIFY!!!!
-// const handleSubmitEvent= {
-//     submit: {
-//         $(function() {
-//             $('.js-form').submit(event => {
-//                 event.preventDefault();  // this stops the default form submission behavior
-//                 console.log(`${quizQAObject.questionsRenderCount.count}`);
-//                 quizQAObject.questionsRenderCount.resetCounter = 1;
-//                 console.log(`${quizQAObject.questionsRenderCount.count}`);
-//             });
-//         }
-// )
-// }
-// }
-
-// ++++++++++++++++++++++++++++++++++++++++++++++
-
-let path = quizQAObject.questionList.question1.htmlAnswers.answer1;
-const select = {
-    selectAnswer(questionNum, answerNum){
-        this.questionList["question" + questionNum].htmlAnswers["answer" + answerNum].isSelected = true;
+let {
+    questionList: {
+        question5: {
+            htmlQuestion,
+            htmlAnswers: {
+                answer4: {
+                    text,
+                    isCorrect,
+                    isSelected
+                }
+            }
+        }
     }
-};
-// const rndrQsnCount = {
-//     updateCounter(){
-//         this.rndrQsnCount += 1;
-//     },
-//      getCount(){
-//         return this.rndrQsnCount;
-//     }
-// };
-
-
-
-
-
-// <<< vvv define methods for DB property retrieval vvv >>>>
-
-// let number=1;
-// function computePropertyName() { return "question" + number; } // works using variable number
-function computeQuestionNumberPropertyName(rndrQsnCount) { return "question" + rndrQsnCount; } // reference quizQAObject.rndrQsnCount
-function computeQNumberPropertyName(rndrQsnCount){ return "q" + rndrQsnCount; } //  reference quizQAObject.rndrQsnCount
-
-console.log(`rndrQsnCount property`);
-console.log(quizQAObject.questionsRenderCount.counter);
-let {questionList:qL}=quizQAObject;//destructure quizQAObject & define questionList = qL
-console.log(`qL object`);
-console.log(qL);
-// let {question1:q1}=qL;//destructure quizQAObject>>qL & define questionList = q1
-// let qN=computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter);
-// console.log(`this is ${qN}`)
-// let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.counter)]:eval(`var toad = ${qN}`)}=qL;//destructure quizQAObject>>qL & define questionList = q1
-let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.counter)]:qN}=qL //destructure quizQAObject>>qL & define questionList = q1
-
-// let qN=computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter);
-console.log(`qN object!!`);
-console.log([computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter)]);
-console.log(qN);
-// let {htmlAnswers:answers}=quizQAObject.questionList.question1;//destructure quizQAObject & define htmlAnswers = answers
-let {htmlAnswers:answers}=qN;//destructure quizQAObject>>qL>>q1 & define htmlAnswers = answers
-console.log(`answers object`);
-console.log(answers);
-
-// JavaScript: The Definitive Guide, 7th Edition 3.3.1 Objects As Associative Arrays
-// iterate over answers to get all 4 answers object properties
-
-// let addr = "";
-// for(let i = 1; i <= 4; i++) {
-//     addr += "answer" + i + ": " + "\n";
-//     addr += answers["answer" + i].isCorrect + "\n";
-//     addr += answers["answer" + i].isSelected + "\n";
-//     addr += answers["answer" + i].text + "\n";
-// }
-// console.log(addr);
-
-// vvv this snippet iterates over each answer in answers vvv
-let i=0;
-console.log(`iterate over answers for question${quizQAObject.questionsRenderCount.counter}`)
-for(let answer in answers) {
-    i++;
-    console.log(answers["answer" + i]);
-}
-// ^^^ this snippet iterates over each answer in answers ^^^
-
-
-// ^^^^ define methods for DB property retrieval ^^^^
-
-
-
-
-
-// vvvv assign objects to the main quizQAObject vvvv
-
-Object.assign(quizQAObject, select);
-// Object.assign(quizQAObject, rndrQsnCount);
-
-// ^^^^ assign objects to the main quizQAObject ^^^^
-
-
-
-
-quizQAObject.selectAnswer(2, 4); // call method Select.selectAnswer(questionNum, answerNum) to update isSelected:true/false (works)
-
-// quizQAObject.updateCounter();
-
-// quizQAObject.getCount;
-
-
-// vvvv  html page replacement objects vvvvv
-
-
-
+} = quizQAObject;
