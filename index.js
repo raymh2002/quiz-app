@@ -5,14 +5,22 @@
 // selecting "Click to Begin!" (submit) button from the start page should render the quizQuestionPage.html (qQP)
 function renderQuizLaunchPage() {
     console.log('`renderQuizLaunchPage` ran');
+    console.log((`counter = ${quizQAObject.questionsRenderCount.count}`));
+    $("#js-replace-html-wrapper").html(quizLaunchPageHTML);
 }
 
 // quizQuestionPage.html (qQP) ************
 // qQP should render the current question
 // the qQP should allow user to select an answer and get immediate feedback
 function renderQuizQuestionPage() {
-    console.log('`renderQuizQuestionPage` ran');
-    $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML); // replace html in container on quizLaunchPage.html
+    console.log(`'renderQuizQuestionPage ran'`);
+    if(quizQAObject.questionsRenderCount.count === 10) {
+        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML);
+        $("#next-question").val(updateSubmitValue);
+    }else {
+        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML); // replace html in container on quizLaunchPage.html
+    }
+    quizQAObject.questionsRenderCount.count=1;
     /* when a user clicks on start quiz button */
     }
 
@@ -34,6 +42,7 @@ function renderQuizQuestionPage() {
 // qRP should include a "Retake Quiz" submit button  >> OR change to ONLY >> "Review Answers" ????
 function renderQuizResultPage() {
     console.log('`renderQuizResultPage` ran');
+    $( "#js-replace-html-wrapper" ).html(quizResultPageHTML); // replace html in container on quizLaunchPage.html
 }
 
 
@@ -73,16 +82,19 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
     console.log(`handleStartQuizSubmitButton() ran!`)
     $('#js-replace-html-wrapper').on('click', '#start-quiz-submit', function(event){
             event.preventDefault();  // this stops the default form submission behavior
+            event.stopPropagation();
             console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
             quizQAObject.questionsRenderCount.resetCounter = 1;
             console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
             console.log(`call renderQuizQuestionPage()`);
             renderQuizQuestionPage();
+            handleNextQuestionSubmitButton();
         }
     );
 
 // $('.js-form').on("submit", event => {
 //     event.preventDefault();  // this stops the default form submission behavior
+//         event.stopPropagation();
 //     console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
 //     quizQAObject.questionsRenderCount.resetCounter = 1;
 //     console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
@@ -90,17 +102,42 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
 // });
 }
 
+// function handleNextQuestionSubmitButton() {
+//     console.log(`handleNextQuestionSubmitButton() ran!`);
+//     $('#next-question').on("click", event => {
+//         event.preventDefault();  // this stops the default form submission behavior
+//         console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
+//         quizQAObject.questionsRenderCount.count = 1;
+//         console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
+//         console.log(`call renderQuizQuestionPage()`);
+//         renderQuizQuestionPage();
+//     });
+// }
+
+
 function handleNextQuestionSubmitButton() {
-    console.log(`handleNextQuestionSubmitButton() ran!`);
-    $('#next-question').on("click", event => {
-        event.preventDefault();  // this stops the default form submission behavior
-        console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
-        quizQAObject.questionsRenderCount.count = 1;
-        console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
-        console.log(`call renderQuizQuestionPage()`);
-        renderQuizQuestionPage();
-    });
+    // console.log(`handleNextQuestionSubmitButton() ran!`);
+    // $('#next-question').on("click", event => {
+    //     event.preventDefault();  // this stops the default form submission behavior
+    //     event.stopPropagation();
+    //     console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
+    //     quizQAObject.questionsRenderCount.count = 1;
+    //     console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
+    //     console.log(`call renderQuizQuestionPage()`);
+    //     renderQuizQuestionPage();
+    // });
+    $('#js-replace-html-wrapper').on('click', '#next-question',function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (quizQAObject.questionsRenderCount.count <= 10) {
+            renderQuizQuestionPage();
+        } else{
+            // quizQAObject.questionsRenderCount.countReset = 1;
+            renderQuizResultPage();
+        }
+});
 }
+
 // ^^^^ event handlers ^^^^^
 
 
@@ -110,7 +147,6 @@ function handleQuizApp() {
     // renderQuizResultPage();
     // renderQuizReviewPage();
     handleStartQuizSubmitButton();
-    handleNextQuestionSubmitButton();
 }
 
 

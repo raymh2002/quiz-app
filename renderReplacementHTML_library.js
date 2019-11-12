@@ -1,3 +1,21 @@
+const quizLaunchPageHTML = $(`
+<div class="home-page-container">
+<header>
+    <h1 class="home-page-header-title"> HTML QUIZ APP toad stool</h1>
+</header>
+
+<div class="form-start-container">
+    <form class="js-form">
+        <fieldset>
+            <legend class="home-legend"><h2>Test Your HTML Knowledge</h2></legend>
+            <input type="submit" id="start-quiz-submit" class="start-quiz-submit" value="Click to Begin!">
+        </fieldset>
+    </form>
+</div>
+</div>
+`)
+
+
 const quizQuestionPageHTML = $(`
 <div class="quiz-progress-page-container">
 <header>
@@ -67,7 +85,7 @@ const quizQuestionPageHTML = $(`
     </div>
 </footer>    
 </div>
-`)
+`);
 
 const quizResultPageHTML = $(`
 <div class="quiz-results-container">
@@ -76,7 +94,7 @@ const quizResultPageHTML = $(`
     <input type="submit" class="retake-quiz" value="Retake Quiz">
     <input type="submit" class="quiz-answer-review" value="Review Answers">
 </div>
-`)
+`);
 
 const quizReviewPageHTML = $(`
 <div class="review-container">
@@ -90,4 +108,7 @@ const quizReviewPageHTML = $(`
         </ul>
     </div>
 </div>
-`)
+`);
+
+// const updateSubmitValue = `<input id="next-question" name="next-question" type="submit" value="Finish Quiz">`;
+const updateSubmitValue = `Finish Quiz`;
