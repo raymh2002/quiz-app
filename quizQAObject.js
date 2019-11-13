@@ -306,6 +306,7 @@ const select = {
 // function computePropertyName() { return "question" + number; } // works using variable number
 function computeQuestionNumberPropertyName(rndrQsnCount) { return "question" + rndrQsnCount; } // reference quizQAObject.rndrQsnCount
 function computeQNumberPropertyName(rndrQsnCount){ return "q" + rndrQsnCount; } //  reference quizQAObject.rndrQsnCount
+// function returnCounter()
 
 console.log(`rndrQsnCount property`);
 console.log(quizQAObject.questionsRenderCount.counter);

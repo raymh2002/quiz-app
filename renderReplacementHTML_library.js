@@ -21,8 +21,8 @@ const quizQuestionPageHTML = $(`
 <header>
     <div class="quiz-status-container">
         <ul class="quiz-status-display">
-            <li class="quiz-status-item">Question Number</li>
-            <li class="quiz-status-item">Time Count Down</li>
+            <li class="quiz-status-item">Question Number<div id="js-questionNumber"></div></li>
+            <li class="quiz-status-item">Time Count Down<div id="js-questionClockCount"></div></li>
             <li class="quiz-status-item">Score</li>
         </ul>
     </div>

@@ -5,6 +5,7 @@
 // selecting "Click to Begin!" (submit) button from the start page should render the quizQuestionPage.html (qQP)
 function renderQuizLaunchPage() {
     console.log('`renderQuizLaunchPage` ran');
+    quizQAObject.questionsRenderCount.resetCounter = 1;
     console.log((`counter = ${quizQAObject.questionsRenderCount.count}`));
     $("#js-replace-html-wrapper").html(quizLaunchPageHTML);
 }
@@ -14,15 +15,83 @@ function renderQuizLaunchPage() {
 // the qQP should allow user to select an answer and get immediate feedback
 function renderQuizQuestionPage() {
     console.log(`'renderQuizQuestionPage ran'`);
-    if(quizQAObject.questionsRenderCount.count === 10) {
+    // console.log(`timer.timerValue = ${timer.getTimerValue}`)
+    let counter = quizQAObject.questionsRenderCount.count;
+    // clearTimeout(processQuestionTimer);
+    // setTimeout(processQuestionTimer,1000);
+    console.log(`PRIOR TO EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
+    if (timer.getIsTimerRunning === true){
+        window.clearTimeout(timeoutID);
+        timer.setIsTimerRunning = false;
+        timer.resetTimerValue = 9;
+        console.log(`AFTER IF EVALUATION "TRUE" >> isTimerRunning === ${timer.getIsTimerRunning}`);
+        console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
+    }
+    console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> isTimerRunning === ${timer.getIsTimerRunning}`);
+    console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
+
+    timeoutID=window.setTimeout("processQuestionTimer();",2000);
+    timer.setIsTimerRunning = true;
+    console.log(`AFTER CALLING setTimeout("processQuestionTimer();" & setter timer.setIsTimerRunning >> isTimerRunning === ${timer.getIsTimerRunning}`)
+
+    if(counter === 10) {
         $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML);
         $("#next-question").val(updateSubmitValue);
     }else {
         $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML); // replace html in container on quizLaunchPage.html
     }
+    $('#js-questionNumber').text(counter);
     quizQAObject.questionsRenderCount.count=1;
-    /* when a user clicks on start quiz button */
+    /* when a user clicks on next question button */
     }
+// question timer function vvvv
+
+function processQuestionTimer() {
+    let questionCountClock = timer.getTimerValue; // get timer.timerValue
+
+    console.log(`processQuestionTimer() ran - startTime = ${questionCountClock}`);
+    // console.log(`questionCountClock = ${questionCountClock}`);
+
+    $("#js-questionClockCount").text(questionCountClock);
+    if (questionCountClock === 0){
+        // console.log(`questionClockCount === ${questionCountClock}`);
+        // console.log(`autoAnswer() ran!!`);
+
+        // clearTimeout(processQuestionTimer);
+        window.clearTimeout(timeoutID);
+        timer.setIsTimerRunning = false;
+        timer.resetTimerValue = 7;
+        console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
+        console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> getTimerValue === ${timer.getTimerValue}`);
+    } else {
+        // setTimer--;
+        // console.log(`questionClockCount === ${questionCountClock}`);
+        timer.setTimerValue = 1; // decrement timer.timerValue by 1
+        // setTimeout(processQuestionTimer,1000);
+        timeoutID=window.setTimeout("processQuestionTimer();",2000);
+    }
+}
+// vvv create object for let timerCount = 15 & create getter / setter for setTimer vvvv
+
+
+let timer = {
+    timerValue: 5,
+    get getTimerValue() { return this.timerValue; },
+    set setTimerValue(next) {
+        this.timerValue -= next; // decrement counter
+    },
+    set resetTimerValue(reset){
+        this.timerValue = reset; // reset counter to 10
+    },
+    isTimerRunning: false,
+    get getIsTimerRunning() {return this.isTimerRunning;},
+    set setIsTimerRunning(status) {
+        this.isTimerRunning = status;
+    }
+}
+
+
+// ^^^ create object for let timerCount = 15 & create getter / setter for setTimer ^^^^^
 
 
 //      when an answer is selected:
@@ -84,7 +153,7 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
             event.preventDefault();  // this stops the default form submission behavior
             event.stopPropagation();
             console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
-            quizQAObject.questionsRenderCount.resetCounter = 1;
+            // quizQAObject.questionsRenderCount.resetCounter = 1;
             console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
             console.log(`call renderQuizQuestionPage()`);
             renderQuizQuestionPage();
@@ -129,7 +198,10 @@ function handleNextQuestionSubmitButton() {
     $('#js-replace-html-wrapper').on('click', '#next-question',function (event) {
         event.preventDefault();
         event.stopPropagation();
+        // window.clearTimeout(timeoutID);
+        // clearTimeout(processQuestionTimer);
         if (quizQAObject.questionsRenderCount.count <= 10) {
+            // clearTimeout(processQuestionTimer);
             renderQuizQuestionPage();
         } else{
             // quizQAObject.questionsRenderCount.countReset = 1;
