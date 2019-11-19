@@ -5,8 +5,8 @@
 // selecting "Click to Begin!" (submit) button from the start page should render the quizQuestionPage.html (qQP)
 function renderQuizLaunchPage() {
     console.log('`renderQuizLaunchPage` ran');
-    quizQAObject.questionsRenderCount.resetCounter = 1;
-    console.log((`counter = ${quizQAObject.questionsRenderCount.count}`));
+    quizQAObject.questionsRenderCount.resetCounter = 0;
+    console.log((`page counter = ${quizQAObject.questionsRenderCount.count + 1}`));
     $("#js-replace-html-wrapper").html(quizLaunchPageHTML);
 }
 
@@ -16,22 +16,22 @@ function renderQuizLaunchPage() {
 function renderQuizQuestionPage() {
     console.log(`'renderQuizQuestionPage ran'`);
     // console.log(`timer.timerValue = ${timer.getTimerValue}`)
-    let counter = quizQAObject.questionsRenderCount.count;
+    let counter = quizQAObject.questionsRenderCount.count + 1; //define variable counter using getter and add 1 to getter value
     // clearTimeout(processQuestionTimer);
     // setTimeout(processQuestionTimer,1000);
     console.log(`PRIOR TO EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
-    if (timer.getIsTimerRunning === true){
-        window.clearTimeout(timeoutID);
-        timer.setIsTimerRunning = false;
-        timer.resetTimerValue = 9;
+    if (timer.getIsTimerRunning === true){ // use getter to pull status flag value to evaluate if there is a timer instance running
+        window.clearTimeout(timeoutID); // if timer instance currently running as per flag value then kill current timer instance
+        timer.setIsTimerRunning = false; // use setter to set timer status flag to false to indicate timeoutID process not running
+        timer.resetTimerValue = 10; //use setter to set timer value to 10
         console.log(`AFTER IF EVALUATION "TRUE" >> isTimerRunning === ${timer.getIsTimerRunning}`);
         console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
     }
     console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> isTimerRunning === ${timer.getIsTimerRunning}`);
     console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
 
-    timeoutID=window.setTimeout("processQuestionTimer();",2000);
-    timer.setIsTimerRunning = true;
+    timeoutID=window.setTimeout("processQuestionTimer();",1000); // call .setTimeout() method and assign process ID to timeoutID
+    timer.setIsTimerRunning = true; // use setter to set isTimer running status flag to true to indicate timer is running
     console.log(`AFTER CALLING setTimeout("processQuestionTimer();" & setter timer.setIsTimerRunning >> isTimerRunning === ${timer.getIsTimerRunning}`)
 
     if(counter === 10) {
@@ -46,13 +46,13 @@ function renderQuizQuestionPage() {
     }
 // question timer function vvvv
 
-function processQuestionTimer() {
-    let questionCountClock = timer.getTimerValue; // get timer.timerValue
+function processQuestionTimer() {  //this function gets/sets the value for the question clock
+    let questionCountClock = timer.getTimerValue; // use getter timer.timerValue to get timerValue for the countdown
 
     console.log(`processQuestionTimer() ran - startTime = ${questionCountClock}`);
     // console.log(`questionCountClock = ${questionCountClock}`);
 
-    $("#js-questionClockCount").text(questionCountClock);
+    $("#js-questionClockCount").text(questionCountClock); //update clock counter on question page
     if (questionCountClock === 0){
         // console.log(`questionClockCount === ${questionCountClock}`);
         // console.log(`autoAnswer() ran!!`);
@@ -60,7 +60,7 @@ function processQuestionTimer() {
         // clearTimeout(processQuestionTimer);
         window.clearTimeout(timeoutID);
         timer.setIsTimerRunning = false;
-        timer.resetTimerValue = 7;
+        timer.resetTimerValue = 10;
         console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
         console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> getTimerValue === ${timer.getTimerValue}`);
     } else {
@@ -81,7 +81,7 @@ let timer = {
         this.timerValue -= next; // decrement counter
     },
     set resetTimerValue(reset){
-        this.timerValue = reset; // reset counter to 10
+        this.timerValue = reset; // reset counter to value passed in default ===10
     },
     isTimerRunning: false,
     get getIsTimerRunning() {return this.isTimerRunning;},

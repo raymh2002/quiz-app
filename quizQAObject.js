@@ -1,6 +1,6 @@
 const quizQAObject={
     questionsRenderCount:{
-        counter:5, // render question counter >> track current question number
+        counter:0, // render question counter >> track current question number
 
         get count() { return this.counter; },
         set count(next) {
@@ -333,12 +333,12 @@ const quizQAObject={
 
 // ++++++++++++++++++++++++++++++++++++++++++++++
 
-let path = quizQAObject.questionList.question1.htmlAnswers.answer1;
-const select = {
-    selectAnswer(questionNum, answerNum){
-        this.questionList["question" + questionNum].htmlAnswers["answer" + answerNum].isSelected = true;
-    }
-};
+// let path = quizQAObject.questionList.question1.htmlAnswers.answer1;
+// const select = {
+//     selectAnswer(questionNum, answerNum){
+//         this.questionList["question" + questionNum].htmlAnswers["answer" + answerNum].isSelected = true;
+//     }
+// };
 // const rndrQsnCount = {
 //     updateCounter(){
 //         this.rndrQsnCount += 1;
