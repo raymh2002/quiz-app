@@ -47,25 +47,25 @@ const quizQAObject={
             htmlAnswers: [
                // answer1:
                {
-                    text: "<h6>",
+                    text: "&lth6&gt",
                     isCorrect: false,
                     isSelected:false
                },
                // answer2:
                {
-                    text: "<h2>",
+                    text: "&lth2&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                // answer3:
                {
-                    text: "<h3>",
+                    text: "&lth3&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                // answer4:
                 {
-                    text: "<h1>",
+                    text: "&lth1&gt",
                     isCorrect: true,
                     isSelected: false
                 }
@@ -77,25 +77,25 @@ const quizQAObject={
             htmlAnswers: [
                 // answer1:
                 {
-                    text: "<nl>",
+                    text: "&ltnl&gt",
                     isCorrect: false,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<br>",
+                    text: "&ltbr&gt",
                     isCorrect: true,
                     isSelected: false
                 },
                 // answer3:
                 {
-                    text: "<line-break>",
+                    text: "&ltline-break&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer4:
                 {
-                    text: "<break>",
+                    text: "&ltbreak&gt",
                     isCorrect: false,
                     isSelected: false
                 }
@@ -107,13 +107,13 @@ const quizQAObject={
             htmlAnswers: [
                 // answer1:
                 {
-                    text: ">",
+                    text: "&gt",
                     isCorrect: false,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<",
+                    text: "&lt",
                     isCorrect: false,
                     isSelected: false
                 },
@@ -137,25 +137,25 @@ const quizQAObject={
             htmlAnswers: [
                 // answer1:
                 {
-                    text: "<ol>",
+                    text: "&ltol&gt",
                     isCorrect: false,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<unordered-list>",
+                    text: "&ltunordered-list&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer3:
                 {
-                    text: "<ulist>",
+                    text: "&ltulist&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer4:
                 {
-                    text: "<ul>",
+                    text: "&ltul&gt",
                     isCorrect: true,
                     isSelected: false
                 }
@@ -167,25 +167,25 @@ const quizQAObject={
                 htmlAnswers: [
                 // answer1:
                 {
-                    text: "<ol>",
+                    text: "&ltol&gt",
                     isCorrect: true,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<ordered-list>",
+                    text: "&ltordered-list&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer3:
                 {
-                    text: "<olist>",
+                    text: "&ltolist&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer4:
                 {
-                    text: "<ul>",
+                    text: "&ltul&gt",
                     isCorrect: false,
                     isSelected: false
                 }
@@ -197,25 +197,25 @@ const quizQAObject={
             htmlAnswers: [
                 // answer1:
                 {
-                    text: "<input-text>",
+                    text: "&ltinput-text&gt",
                     isCorrect: false,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<input type='text'>",
+                    text: "&ltinput type='text'&gt",
                     isCorrect: true,
                     isSelected: false
                 },
                 // answer3:
                 {
-                    text: "<input type='textbox'>",
+                    text: "&ltinput type='textbox'&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer4:
                 {
-                    text: "<textbox>",
+                    text: "&lttextbox&gt",
                     isCorrect: false,
                     isSelected: false
                 }
@@ -227,25 +227,25 @@ const quizQAObject={
             htmlAnswers: [
                 // answer1:
                 {
-                    text: "<head>",
+                    text: "&lthead&gt",
                     isCorrect: false,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<meta>",
+                    text: "&ltmeta&gt",
                     isCorrect: true,
                     isSelected: false
                 },
                 // answer3:
                 {
-                    text: "<title>",
+                    text: "&lttitle&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer4:
                 {
-                    text: "<script>",
+                    text: "&ltscript&gt",
                     isCorrect: false,
                     isSelected: false
                 }
@@ -257,25 +257,25 @@ const quizQAObject={
             htmlAnswers: [
                 // answer1:
                 {
-                    text: "<validation-required>",
+                    text: "&ltvalidation-required&gt",
                     isCorrect: false,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<must-complete>",
+                    text: "&ltmust-complete&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                // answer3:
                 {
-                    text: "<required>",
+                    text: "&ltrequired&gt",
                     isCorrect: true,
                     isSelected: false
                 },
                 // answer4:
                 {
-                    text: "<validate>",
+                    text: "&ltvalidate&gt",
                     isCorrect: false,
                     isSelected: false
                 }
@@ -287,25 +287,25 @@ const quizQAObject={
             htmlAnswers: [
                // answer1:
                 {
-                    text: "<navigation-links>",
+                    text: "&ltnavigation-links&gt",
                     isCorrect: false,
                     isSelected:false
                 },
                 // answer2:
                 {
-                    text: "<header>",
+                    text: "&ltheader&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer3:
                 {
-                    text: "<navigation>",
+                    text: "&ltnavigation&gt",
                     isCorrect: false,
                     isSelected: false
                 },
                 // answer4:
                 {
-                    text: "<nav>",
+                    text: "&ltnav&gt",
                     isCorrect: true,
                     isSelected: false
                 }

@@ -19,13 +19,14 @@ const quizLaunchPageHTML = $(`
 </div>
 `)
 
-const question = quizQAObject.questionList[quizQAObject.questionsRenderCount.count]; //using count getter to pull counter value
-const answer1 = question.htmlAnswers[0];
-const answer2 = question.htmlAnswers[1];
-const answer3 = question.htmlAnswers[2];
-const answer4 = question.htmlAnswers[3];
 
-const quizQuestionPageHTML = $(`
+let quizQuestionPageHTML = function () {
+    const question = quizQAObject.questionList[quizQAObject.questionsRenderCount.count]; //using count getter to pull counter value
+    const answer1 = question.htmlAnswers[0];
+    const answer2 = question.htmlAnswers[1];
+    const answer3 = question.htmlAnswers[2];
+    const answer4 = question.htmlAnswers[3];
+const returnHTML = $(`
 <div class="quiz-progress-page-container">
 <header>
     <div class="quiz-status-container">
@@ -94,7 +95,11 @@ const quizQuestionPageHTML = $(`
     </div>
 </footer>    
 </div>
-`);
+`)
+    return returnHTML;
+}
+
+
 
 const quizQAPageHeader = $(`
 <header>

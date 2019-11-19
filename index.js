@@ -35,13 +35,14 @@ function renderQuizQuestionPage() {
     console.log(`AFTER CALLING setTimeout("processQuestionTimer();" & setter timer.setIsTimerRunning >> isTimerRunning === ${timer.getIsTimerRunning}`)
 
     if(counter === 10) {
-        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML);
+        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML());
         $("#next-question").val(updateSubmitValue);
     }else {
-        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML); // replace html in container on quizLaunchPage.html
+        console.log(quizQuestionPageHTML());
+        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML()); // replace html in container on quizLaunchPage.html
     }
     $('#js-questionNumber').text(counter);
-    quizQAObject.questionsRenderCount.count=1;
+    quizQAObject.questionsRenderCount.count=1; // getter increments the counter by 1
     /* when a user clicks on next question button */
     }
 // question timer function vvvv
