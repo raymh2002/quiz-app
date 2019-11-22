@@ -62,7 +62,7 @@ function processQuestionTimer() {  //this function gets/sets the value for the q
         window.clearTimeout(timeoutID);
         timer.setIsTimerRunning = false;
         timer.resetTimerValue = 10;
-        console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
+        console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`);
         console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> getTimerValue === ${timer.getTimerValue}`);
     } else {
         // setTimer--;
@@ -158,7 +158,7 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
             console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
             console.log(`call renderQuizQuestionPage()`);
             renderQuizQuestionPage();
-            handleNextQuestionSubmitButton();
+    // handleNextQuestionSubmitButton(); // uncomment this when the handleSelectAnswer() function is complete and new submit button html created
         }
     );
 
@@ -184,7 +184,7 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
 //     });
 // }
 
-
+// commenting this code to create submit to handle checked and correct answer logic
 function handleNextQuestionSubmitButton() {
     // console.log(`handleNextQuestionSubmitButton() ran!`);
     // $('#next-question').on("click", event => {
@@ -201,79 +201,37 @@ function handleNextQuestionSubmitButton() {
         event.stopPropagation();
         // window.clearTimeout(timeoutID);
         // clearTimeout(processQuestionTimer);
-        if (quizQAObject.questionsRenderCount.count <= 10) {
-            // clearTimeout(processQuestionTimer);
-            renderQuizQuestionPage();
-        } else{
-            // quizQAObject.questionsRenderCount.countReset = 1;
-            renderQuizResultPage();
-        }
+        if (quizQAObject.questionsRenderCount.count <= 10) { // uncomment when code to create submit to handle checked and correct answer logic completed
+            renderQuizQuestionPage();   // uncomment when code to create submit to handle checked and correct answer logic completed
+        } else{   // uncomment when code to create submit to handle checked and correct answer logic completed
+            renderQuizResultPage();   // uncomment when code to create submit to handle checked and correct answer logic completed
+        }   // uncomment when code to create submit to handle checked and correct answer logic completed
 });
 }
 
 function handleSelectAnswer() {
 
-    $('#js-replace-html-wrapper').on('click','.js-input',function (event) {
-        // event.preventDefault();
-        event.stopPropagation();
-        // alert('EUREKA!! TOADSTOOL!!');
-        // $( "li" ).has("input[value='true']").css( "background-color", "yellow" ); // use of .has() and array notation/element referencing
-        // $( "li" ).has("input[value='true']").has("input.prop('checked')").css( "background-color", "purple" ); // use of .has() and array notation/element referencing
-        // $( "li" ).has("input.prop('checked')").css( "background-color", "purple" );
-    //     if($( "li" ).has("input[value='true']").prop('checked')==="true"){
-    //     alert('hey there, it worked!!!');
-    // } else {
-    //         alert('nothing here loser!!');
-    //     };
+    // $('#js-replace-html-wrapper').on('click','.js-input',function (event) {  // comment this targeting .js-input to create target submit event
+    // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
+    $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
+            event.preventDefault();  //prevent default submit action but needs to be commented for .on('click') event
+            event.stopPropagation();
+            const radioListInputs = $("li"); // create const containing all list items in container
+            const isCorrectAnswer = radioListInputs.has("input[value='true']"); // create const containing the correct answer list item
+            const isSelected = radioListInputs.has($("input:checked")); //create const containing the input:checked list item
+
+        if ($(isCorrectAnswer).attr("id") === $(isSelected).attr("id")) {
+            console.log($(isCorrectAnswer).prop("id"));
+            console.log($(isSelected).prop("id"));
+            isCorrectAnswer.css("background-color", "purple"); // change background color of correct answer list item
+        } else {
+            isCorrectAnswer.css("background-color", "blue"); // change background color of selected list item
+            isSelected.css("background-color", "gray"); // change background color of selected list item
+        }
 
 
-        // code prior to const =
-        // const radioInputs = $(".js-input");
-        const radioListInputs = $("li"); // create const containing all list items in container
 
-        const isCorrectAnswer = radioListInputs.has("input[value='true']"); // create const containing the correct answer list item
-        isCorrectAnswer.css("background-color", "purple"); // change background color of correct answer list item
-
-        const isSelected = radioListInputs.has($("input:checked"));
-        isSelected.css("background-color", "orange"); // change background color of selected list item
-
-        //     radioListInputs.filter(function () {
-        //     let inputListItem = ("input");
-        //     let isChecked = ("input").prop("checked");
-        //     if (isChecked === true){
-        //         return inputListItem;
-        //     }
-        // })
-
-
-        $( "input" ).on( "click", function() {
-            $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
-        });
-        // $(".js-input")
-        //     .filter(function () {
-        //         // $("#answer2").prop("checked")!==true;
-        //         // let test = $(input).prop("checked");
-        //         let test = $("input").prop("checked");
-        //         if (test === true){
-        //             // alert(`hey RayRay, this worked!`);
-        //             let radioID = $("input").parentElement;
-        //             return radioID;
-        //         } else {
-        //             alert(`nope loser, this did NOT work!`);
-        //         }
-        //     })
-        //     .css("background-color", "purple");
-
-        // $( "li" )
-        //     .filter(function( index ) {
-        //         return index % 3 === 2;
-        //     })
-        //     .css( "background-color", "red" );
-
-
-        $("#answer1").prop("value");
-        $("#answer2").prop("checked")
-    })
+        })
 }
 
 // ^^^^ event handlers ^^^^^
@@ -284,7 +242,7 @@ function handleQuizApp() {
     // renderQuizQuestionPage();
     // renderQuizResultPage();
     // renderQuizReviewPage();
-    handleStartQuizSubmitButton();
+    handleStartQuizSubmitButton(); //loads first question page and calls handleNextQuestionSubmitButton();
     handleSelectAnswer();
 }
 

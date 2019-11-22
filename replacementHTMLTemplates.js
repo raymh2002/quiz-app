@@ -43,28 +43,28 @@ const returnHTML = $(`
     <form id="js-questionInProgress">
     <div class="question">Question: ${question.htmlQuestion}</div>
     <ul id="answers-list" class="answers-list">
-        <li class="answer-item js-correct-answer">
+        <li class="answer-item" id="li-answer1">  <!--js-correct-answer css class (removed & commented out for js css manipulation)-->
 <!--            li-Answer1-->
 <!--            <div>-->
                 <input type="radio" id="answer1" name="answer" value=${answer1.isCorrect} required class="js-input"> 
                 <label for="answer1">Answer1: ${answer1.text}</label>
 <!--            </div>-->
         </li>
-        <li class="answer-item js-incorrect-answer">
+        <li class="answer-item" id="li-answer2"> <!--  js-incorrect-answer css class (removed & commented out for js css manipulation)-->
 <!--            li-Answer2-->
 <!--            <div>-->
                 <input type="radio" id="answer2" name="answer" value=${answer2.isCorrect} class="js-input">
                 <label for="answer2">Answer2: ${answer2.text}</label>
 <!--            </div>-->
         </li>
-        <li class="answer-item results-correct-response-item">
+        <li class="answer-item" id="li-answer3"> <!-- results-correct-response-item css class (removed & commented out for js css manipulation)--> 
 <!--            li-Answer3-->
 <!--            <div>-->
                 <input tabindex="0" type="radio" id="answer3" name="answer" value=${answer3.isCorrect} class="js-input">
                 <label for="answer3">Answer3: ${answer3.text}</label>
 <!--            </div>-->
         </li>
-        <li class="answer-item">
+        <li class="answer-item" id="li-answer4">
 <!--            li-Answer4-->
 <!--            <div>-->
                 <input type="radio" id="answer4" name="answer" value=${answer4.isCorrect} class="js-input">
