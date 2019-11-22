@@ -26,7 +26,8 @@ let quizQuestionPageHTML = function () {
     const answer2 = question.htmlAnswers[1];
     const answer3 = question.htmlAnswers[2];
     const answer4 = question.htmlAnswers[3];
-const returnHTML = $(`
+    // define variable to return to calling function renderQuizQuestionPage() vvvvvv
+const returnHTML = $(`                       
 <div class="quiz-progress-page-container">
 <header>
     <div class="quiz-status-container">
@@ -45,28 +46,28 @@ const returnHTML = $(`
         <li class="answer-item js-correct-answer">
 <!--            li-Answer1-->
 <!--            <div>-->
-                <input type="radio" id="answer1" name="answer1" value=${answer1.isCorrect}  selected=true>
+                <input type="radio" id="answer1" name="answer" value=${answer1.isCorrect} required class="js-input"> 
                 <label for="answer1">Answer1: ${answer1.text}</label>
 <!--            </div>-->
         </li>
         <li class="answer-item js-incorrect-answer">
 <!--            li-Answer2-->
 <!--            <div>-->
-                <input type="radio" id="answer2" name="answer2" value=${answer2.isCorrect} >
+                <input type="radio" id="answer2" name="answer" value=${answer2.isCorrect} class="js-input">
                 <label for="answer2">Answer2: ${answer2.text}</label>
 <!--            </div>-->
         </li>
         <li class="answer-item results-correct-response-item">
 <!--            li-Answer3-->
 <!--            <div>-->
-                <input type="radio" id="answer3" name="answer3" value=${answer3.isCorrect} >
+                <input tabindex="0" type="radio" id="answer3" name="answer" value=${answer3.isCorrect} class="js-input">
                 <label for="answer3">Answer3: ${answer3.text}</label>
 <!--            </div>-->
         </li>
         <li class="answer-item">
 <!--            li-Answer4-->
 <!--            <div>-->
-                <input type="radio" id="answer4" name="answer4" value=${answer4.isCorrect} >
+                <input type="radio" id="answer4" name="answer" value=${answer4.isCorrect} class="js-input">
                 <label for="answer4">Answer4: ${answer4.text}</label>
 <!--            </div>-->
         </li>
@@ -148,3 +149,4 @@ const quizReviewPageHTML = $(`
 
 // const updateSubmitValue = `<input id="next-question" name="next-question" type="submit" value="Finish Quiz">`;
 const updateSubmitValue = `Finish Quiz`;
+

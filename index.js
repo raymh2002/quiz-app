@@ -211,6 +211,71 @@ function handleNextQuestionSubmitButton() {
 });
 }
 
+function handleSelectAnswer() {
+
+    $('#js-replace-html-wrapper').on('click','.js-input',function (event) {
+        // event.preventDefault();
+        event.stopPropagation();
+        // alert('EUREKA!! TOADSTOOL!!');
+        // $( "li" ).has("input[value='true']").css( "background-color", "yellow" ); // use of .has() and array notation/element referencing
+        // $( "li" ).has("input[value='true']").has("input.prop('checked')").css( "background-color", "purple" ); // use of .has() and array notation/element referencing
+        // $( "li" ).has("input.prop('checked')").css( "background-color", "purple" );
+    //     if($( "li" ).has("input[value='true']").prop('checked')==="true"){
+    //     alert('hey there, it worked!!!');
+    // } else {
+    //         alert('nothing here loser!!');
+    //     };
+
+
+        // code prior to const =
+        // const radioInputs = $(".js-input");
+        const radioListInputs = $("li"); // create const containing all list items in container
+
+        const isCorrectAnswer = radioListInputs.has("input[value='true']"); // create const containing the correct answer list item
+        isCorrectAnswer.css("background-color", "purple"); // change background color of correct answer list item
+
+        const isSelected = radioListInputs.has($("input:checked"));
+        isSelected.css("background-color", "orange"); // change background color of selected list item
+
+        //     radioListInputs.filter(function () {
+        //     let inputListItem = ("input");
+        //     let isChecked = ("input").prop("checked");
+        //     if (isChecked === true){
+        //         return inputListItem;
+        //     }
+        // })
+
+
+        $( "input" ).on( "click", function() {
+            $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
+        });
+        // $(".js-input")
+        //     .filter(function () {
+        //         // $("#answer2").prop("checked")!==true;
+        //         // let test = $(input).prop("checked");
+        //         let test = $("input").prop("checked");
+        //         if (test === true){
+        //             // alert(`hey RayRay, this worked!`);
+        //             let radioID = $("input").parentElement;
+        //             return radioID;
+        //         } else {
+        //             alert(`nope loser, this did NOT work!`);
+        //         }
+        //     })
+        //     .css("background-color", "purple");
+
+        // $( "li" )
+        //     .filter(function( index ) {
+        //         return index % 3 === 2;
+        //     })
+        //     .css( "background-color", "red" );
+
+
+        $("#answer1").prop("value");
+        $("#answer2").prop("checked")
+    })
+}
+
 // ^^^^ event handlers ^^^^^
 
 
@@ -220,6 +285,7 @@ function handleQuizApp() {
     // renderQuizResultPage();
     // renderQuizReviewPage();
     handleStartQuizSubmitButton();
+    handleSelectAnswer();
 }
 
 
