@@ -6,40 +6,45 @@
 function renderQuizLaunchPage() {
     console.log('`renderQuizLaunchPage` ran');
     quizQAObject.questionsRenderCount.resetCounter = 0;
-    console.log((`page counter = ${quizQAObject.questionsRenderCount.count + 1}`));
+    // console.log((`page counter = ${quizQAObject.questionsRenderCount.count + 1}`));
     $("#js-replace-html-wrapper").html(quizLaunchPageHTML);
 }
 
 // quizQuestionPage.html (qQP) ************
 // qQP should render the current question
 // the qQP should allow user to select an answer and get immediate feedback
+
+
 function renderQuizQuestionPage() {
     console.log(`'renderQuizQuestionPage ran'`);
     // console.log(`timer.timerValue = ${timer.getTimerValue}`)
     let counter = quizQAObject.questionsRenderCount.count + 1; //define variable counter using getter and add 1 to getter value
-    // clearTimeout(processQuestionTimer);
-    // setTimeout(processQuestionTimer,1000);
-    console.log(`PRIOR TO EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
+    // console.log(`PRIOR TO EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
     if (timer.getIsTimerRunning === true){ // use getter to pull status flag value to evaluate if there is a timer instance running
         window.clearTimeout(timeoutID); // if timer instance currently running as per flag value then kill current timer instance
         timer.setIsTimerRunning = false; // use setter to set timer status flag to false to indicate timeoutID process not running
-        timer.resetTimerValue = 10; //use setter to set timer value to 10
-        console.log(`AFTER IF EVALUATION "TRUE" >> isTimerRunning === ${timer.getIsTimerRunning}`);
-        console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
+        timer.resetTimerValue = 5; //use setter to set timer value to 10
     }
-    console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> isTimerRunning === ${timer.getIsTimerRunning}`);
-    console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
+    // console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> isTimerRunning === ${timer.getIsTimerRunning}`);
+    // console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
 
     timeoutID=window.setTimeout("processQuestionTimer();",1000); // call .setTimeout() method and assign process ID to timeoutID
     timer.setIsTimerRunning = true; // use setter to set isTimer running status flag to true to indicate timer is running
-    console.log(`AFTER CALLING setTimeout("processQuestionTimer();" & setter timer.setIsTimerRunning >> isTimerRunning === ${timer.getIsTimerRunning}`)
+    // console.log(`AFTER CALLING setTimeout("processQuestionTimer();" & setter timer.setIsTimerRunning >> isTimerRunning === ${timer.getIsTimerRunning}`)
+
+    $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML()); // refactored this >> moved above conditional and single statement
+
+    $('#submit-answer').attr("disabled", true); //disable the submit answer button
+    // $('#submit-answer').prop("disabled"); //disable the submit answer button
+    // $('#submit-answer').css("background-color", "red");
 
     if(counter === 10) {
-        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML());
-        $("#next-question").val(updateSubmitValue);
+        // $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML()); // refactored this >> moved above conditional and single statement
+        $("#next-question").val(`Finish Quiz`); // this updates the input:submit value >> to be replaced by "js-formSubmitButton-container"
+
     }else {
-        console.log(quizQuestionPageHTML());
-        $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML()); // replace html in container on quizLaunchPage.html
+        // console.log(quizQuestionPageHTML());
+        // $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML()); // refactored this >> moved above conditional and single statement// replace html in container on quizLaunchPage.html
     }
     $('#js-questionNumber').text(counter);
     quizQAObject.questionsRenderCount.count=1; // getter increments the counter by 1
@@ -62,8 +67,8 @@ function processQuestionTimer() {  //this function gets/sets the value for the q
         window.clearTimeout(timeoutID);
         timer.setIsTimerRunning = false;
         timer.resetTimerValue = 10;
-        console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`);
-        console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> getTimerValue === ${timer.getTimerValue}`);
+        // console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`);
+        // console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> getTimerValue === ${timer.getTimerValue}`);
     } else {
         // setTimer--;
         // console.log(`questionClockCount === ${questionCountClock}`);
@@ -153,10 +158,10 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
     $('#js-replace-html-wrapper').on('click', '#start-quiz-submit', function(event){
             event.preventDefault();  // this stops the default form submission behavior
             event.stopPropagation();
-            console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
+            // console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
             // quizQAObject.questionsRenderCount.resetCounter = 1;
-            console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
-            console.log(`call renderQuizQuestionPage()`);
+            // console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
+            // console.log(`call renderQuizQuestionPage()`);
             renderQuizQuestionPage();
     // handleNextQuestionSubmitButton(); // uncomment this when the handleSelectAnswer() function is complete and new submit button html created
         }
@@ -185,6 +190,10 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
 // }
 
 // commenting this code to create submit to handle checked and correct answer logic
+
+
+
+
 function handleNextQuestionSubmitButton() {
     // console.log(`handleNextQuestionSubmitButton() ran!`);
     // $('#next-question').on("click", event => {
@@ -211,9 +220,37 @@ function handleNextQuestionSubmitButton() {
 
 function handleSelectAnswer() {
 
+    $('#js-replace-html-wrapper').on('click','.js-input',function (event) {  // comment this targeting .js-input to create target submit event
+        $('#submit-answer').attr('disabled', false);//   toggle the disabled Submit Answer button to enabled
+
+    // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
+    // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
+
+
+        // event.preventDefault();  //prevent default submit action but needs to be commented for .on('click') event
+        // event.stopPropagation();
+        // const radioListInputs = $("li"); // create const containing all list items in container
+        // const isCorrectAnswer = radioListInputs.has("input[value='true']"); // create const containing the correct answer list item
+        // const isSelected = radioListInputs.has($("input:checked")); //create const containing the input:checked list item
+        //
+        // if ($(isCorrectAnswer).attr("id") === $(isSelected).attr("id")) {
+        //     console.log($(isCorrectAnswer).prop("id"));
+        //     console.log($(isSelected).prop("id"));
+        //     isCorrectAnswer.css("background-color", "purple"); // change background color of correct answer list item
+        // } else {
+        //     isCorrectAnswer.css("background-color", "blue"); // change background color of selected list item
+        //     isSelected.css("background-color", "gray"); // change background color of selected list item
+        // }
+        // $('js-formSubmitButton-container').html(submitNextQuestion); //changes the form:submit button from "Submit-Answer"to "Next-Question"
+    })
+}
+
+
+function handleSubmitAnswerButton() {
+
     // $('#js-replace-html-wrapper').on('click','.js-input',function (event) {  // comment this targeting .js-input to create target submit event
     // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
-    $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
+    $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) { //submit event on form id=js-questionInProgress
             event.preventDefault();  //prevent default submit action but needs to be commented for .on('click') event
             event.stopPropagation();
             const radioListInputs = $("li"); // create const containing all list items in container
@@ -228,9 +265,8 @@ function handleSelectAnswer() {
             isCorrectAnswer.css("background-color", "blue"); // change background color of selected list item
             isSelected.css("background-color", "gray"); // change background color of selected list item
         }
-
-
-
+        $('#js-formSubmitButton-container').html(submitNextQuestion); //changes the form:submit button from "Submit-Answer"to "Next-Question"
+        // $('#submit-answer').css("background-color", "red");
         })
 }
 
@@ -244,6 +280,8 @@ function handleQuizApp() {
     // renderQuizReviewPage();
     handleStartQuizSubmitButton(); //loads first question page and calls handleNextQuestionSubmitButton();
     handleSelectAnswer();
+    handleSubmitAnswerButton();
+    handleNextQuestionSubmitButton();
 }
 
 

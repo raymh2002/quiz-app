@@ -71,9 +71,9 @@ const returnHTML = $(`
                 <label for="answer4">Answer4: ${answer4.text}</label>
 <!--            </div>-->
         </li>
-        <li class="next-question">
+        <li id="js-formSubmitButton-container" class="next-question">
             <div>
-                <input type="submit" id="next-question" name="next-question" value="Next Question">
+                <input type="submit" id="submit-answer" name="submit-answer" value="Submit Answer" >
             </div>
         </li>
     </ul>
@@ -99,6 +99,23 @@ const returnHTML = $(`
 `)
     return returnHTML;
 }
+
+
+const submitAnswerButton = $(`
+            <div>
+                <input type="submit" id="submit-answer" name="submit-answer" value="submit-answer">
+            </div>
+`);
+
+const submitNextQuestion = $(`
+            <div>
+                <input type="submit" id="next-question" name="next-question" value="Next Question">
+            </div>
+`);
+
+// const updateSubmitValue = `<input id="next-question" name="next-question" type="submit" value="Finish Quiz">`;
+const updateSubmitValue = `Finish Quiz`;
+
 
 
 
@@ -146,7 +163,4 @@ const quizReviewPageHTML = $(`
     </div>
 </div>
 `);
-
-// const updateSubmitValue = `<input id="next-question" name="next-question" type="submit" value="Finish Quiz">`;
-const updateSubmitValue = `Finish Quiz`;
 
