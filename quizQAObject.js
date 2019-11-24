@@ -372,13 +372,13 @@ console.log(qL);
 let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.counter)]:qN}=qL //destructure quizQAObject>>qL & define questionList = q1
 
 // let qN=computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter);
-console.log(`qN object!!`);
-console.log([computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter)]);
-console.log(qN);
+// console.log(`qN object!!`);
+// console.log([computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter)]);
+// console.log(qN);
 // let {htmlAnswers:answers}=quizQAObject.questionList.question1;//destructure quizQAObject & define htmlAnswers = answers
-let {htmlAnswers:answers}=qN;//destructure quizQAObject>>qL>>q1 & define htmlAnswers = answers
-console.log(`answers object`);
-console.log(answers);
+// let {htmlAnswers:answers}=qN;//destructure quizQAObject>>qL>>q1 & define htmlAnswers = answers
+// console.log(`answers object`);
+// console.log(answers);
 
 // JavaScript: The Definitive Guide, 7th Edition 3.3.1 Objects As Associative Arrays
 // iterate over answers to get all 4 answers object properties
