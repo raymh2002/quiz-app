@@ -222,6 +222,7 @@ function handleSelectAnswer() {
 
     $('#js-replace-html-wrapper').on('click','.js-input',function (event) {  // comment this targeting .js-input to create target submit event
         $('#submit-answer').attr('disabled', false);//   toggle the disabled Submit Answer button to enabled
+        $('#submit-answer').addClass('hover-submit'); // add hover to the "Submit Answer" button
 
     // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
     // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
@@ -257,20 +258,21 @@ function handleSubmitAnswerButton() {
             const isCorrectAnswer = radioListInputs.has("input[value='true']"); // create const containing the correct answer list item
             const isSelected = radioListInputs.has($("input:checked")); //create const containing the input:checked list item
 
-        radioListInputs.prop("cursor:pointer", "disabled"); // disable cursor pointer on answer list items
-        $('#next-question').prop("cursor:pointer"); // enable cursor pointer on  Answer button
+        // radioListInputs.toggleClass("answer-item:hover"); // note: this kills and background color!!! disable cursor pointer on answer list items
 
         if ($(isCorrectAnswer).attr("id") === $(isSelected).attr("id")) {
             console.log($(isCorrectAnswer).prop("id"));
             console.log($(isSelected).prop("id"));
-            isCorrectAnswer.css("background-color", "purple"); // change background color of correct answer list item
+            isCorrectAnswer.css("background-color", "limegreen"); // change background color of correct answer list item
         } else {
             isCorrectAnswer.css("background-color", "blue"); // change background color of selected list item
             isSelected.css("background-color", "gray"); // change background color of selected list item
         }
         $('#js-formSubmitButton-container').html(submitNextQuestion); //changes the form:submit button from "Submit-Answer"to "Next-Question"
+        $('#next-question').addClass("hover-submit");// enable cursor pointer on  Answer button
+
         $('.js-input').attr('disabled', true); // disable radio buttons
-        // $('#submit-answer').css("background-color", "red");
+        $('.hover-answer').removeClass("hover-answer");
         })
 }
 

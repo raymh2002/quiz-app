@@ -35,6 +35,7 @@ fieldset {
 
 .start-quiz-submit:hover {
     cursor: pointer;
+    background-color: dodgerblue;
 }
 
 
@@ -114,8 +115,27 @@ fieldset {
 }
 
 
-.answer-item:hover, .answer-item > div:hover, .answer-item > div > input:hover, .answer-item > div > label:hover {
+/*.answer-item:hover, .answer-item > div:hover, .answer-item > div > input:hover, .answer-item > div > label:hover {*/
+/*    cursor: pointer;*/
+/*}*/
+
+
+/*.answer-item:hover, answer-item > input:hover, .answer-item >label:hover {*/
+/*    cursor: pointer;*/
+/*}*/
+
+.hover-answer:hover {
     cursor: pointer;
+    background-color: orange;
+}
+
+/*.toadStool{*/
+/*    background-color: red;*/
+/*}*/
+
+.hover-submit:hover {
+    cursor: pointer;
+    background-color: dodgerblue ;
 }
 
 footer {
