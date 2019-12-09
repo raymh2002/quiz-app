@@ -129,6 +129,13 @@ fieldset {
     background-color: orange;
 }
 
+.hover-answer:focus {
+    /*cursor: pointer;*/
+    background-color: orange;
+}
+
+
+
 /*.toadStool{*/
 /*    background-color: red;*/
 /*}*/
@@ -137,6 +144,14 @@ fieldset {
     cursor: pointer;
     background-color: dodgerblue ;
 }
+
+.hover-submit:focus {
+    /*cursor: pointer;*/
+    /*background-color: dodgerblue ;*/
+
+    background-color: yellow ;
+}
+
 
 footer {
     display: flex;
