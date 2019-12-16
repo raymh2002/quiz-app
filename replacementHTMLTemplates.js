@@ -46,28 +46,28 @@ const returnHTML = $(`
         <li tabindex="1" class="answer-item hover-answer" id="li-answer1">  <!--js-correct-answer css class (removed & commented out for js css manipulation)-->
 <!--            li-Answer1-->
 <!--            <div>-->
-                <input disabled hidden type="radio" id="answer1" name="answer" value=${answer1.isCorrect} required class="js-input hover-answer"> 
+                <input  hidden type="radio" id="answer1" name="answer" value=${answer1.isCorrect} required class="js-input hover-answer"> 
                 <label for="answer1" class="hover-answer">Answer1: ${answer1.text}</label>
 <!--            </div>-->
         </li>
         <li tabindex="2" class="answer-item hover-answer" id="li-answer2"> <!--  js-incorrect-answer css class (removed & commented out for js css manipulation)-->
 <!--            li-Answer2-->
 <!--            <div>-->
-                <input disabled hidden type="radio" id="answer2" name="answer" value=${answer2.isCorrect} class="js-input hover-answer">
+                <input  hidden type="radio" id="answer2" name="answer" value=${answer2.isCorrect} class="js-input hover-answer">
                 <label for="answer2" class="hover-answer">Answer2: ${answer2.text}</label>
 <!--            </div>-->
         </li>
         <li tabindex="3" class="answer-item hover-answer" id="li-answer3"> <!-- results-correct-response-item css class (removed & commented out for js css manipulation)--> 
 <!--            li-Answer3-->
 <!--            <div>-->
-                <input disabled hidden type="radio" id="answer3" name="answer" value=${answer3.isCorrect} class="js-input hover-answer">
+                <input  hidden type="radio" id="answer3" name="answer" value=${answer3.isCorrect} class="js-input hover-answer">
                 <label for="answer3" class="hover-answer">Answer3: ${answer3.text}</label>
 <!--            </div>-->
         </li>
         <li tabindex="4" class="answer-item hover-answer" id="li-answer4">
 <!--            li-Answer4-->
 <!--            <div>-->
-                <input disabled hidden type="radio" id="answer4" name="answer" value=${answer4.isCorrect} class="js-input hover-answer">
+                <input  hidden type="radio" id="answer4" name="answer" value=${answer4.isCorrect} class="js-input hover-answer">
                 <label for="answer4" class="hover-answer">Answer4: ${answer4.text}</label>
 <!--            </div>-->
         </li>

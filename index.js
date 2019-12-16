@@ -305,9 +305,13 @@ function handleSubmitAnswerButton() {
             event.preventDefault();  //prevent default submit action but needs to be commented for .on('click') event
             event.stopPropagation();
             const radioListInputs = $("li"); // create const containing all list items in container
+            const radioInputButtons = $("input[name='answer']");
+            const selectedRadioInputButton = ('radioInputButtonsh:checked');
             const isCorrectAnswer = radioListInputs.has("input[value='true']"); // create const containing the correct answer list item
+      console.log(isCorrectAnswer)  ;
             const isSelected = radioListInputs.has($("input:checked")); //create const containing the input:checked list item
-
+        console.log(isSelected);
+debugger;
         // radioListInputs.toggleClass("answer-item:hover"); // note: this kills and background color!!! disable cursor pointer on answer list items
 
         if ($(isCorrectAnswer).attr("id") === $(isSelected).attr("id")) {
