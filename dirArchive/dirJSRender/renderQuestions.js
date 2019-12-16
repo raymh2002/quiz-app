@@ -21,7 +21,7 @@
 // vvv below works; commented below and ported to quizQAObject.js vvv
 // function computePropertyName() { return "question" + number; } // computed property name for use in destructing quizQAObject>>qL
 
-// let {questionList:qL}=quizQAObject;//destructure quizQAObject & define questionList = qL ** works **
+m/ let {questionList:qL}=quizQAObject;//destructure quizQAObject & define questionList = qL ** works **
 // console.log(qL); // ** works **
 
 // let {question1:q1}=qL;//destructure quizQAObject>>qL & define questionList = q1

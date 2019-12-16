@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>event.preventDefault example</title>
+    <link rel="shortcut icon" href="#">
+    <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<form class="js-form">
+<!--    <ul>-->
+<!--        <li>-->
+            <label for="user-text1">Add an item</label>
+            <input type="text" id="user-text1" placeholder="Type something!" >
+<!--        </li>-->
+
+<!--        <li>-->
+<!--            <label for="user-text2">Add an item</label>-->
+<!--            <input type="text" id="user-text2" placeholder="Type something!" >-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    <label for="user-text">Add an item</label>-->
+<!--    <input type="text" id="user-text" placeholder="Type something!" required>-->
+    <input type="submit">
+</form>
+<p class="js-display-user-text"></p>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script>$(function() {
+    $('.js-form').submit(event => {
+        // this stops the default form submission behavior
+        event.preventDefault();
+        // const userTextElement = $(event.currentTarget).find('#user-text1');
+        const userTextElement = $(event.currentTarget).attr().find('#user-text1');
+        // $(".js-display-user-text").text(`user text is:  ${userTextElement.val()}`);
+        $(".js-display-user-text").text(`user text is:  ${userTextElement.val()}`);
+        userTextElement.val("");
+    });
+})
+</script>
+</body>
+</html>

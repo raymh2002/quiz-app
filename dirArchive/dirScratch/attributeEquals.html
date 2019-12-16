@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>attributeEquals demo</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+
+<div>
+    <label>
+        <input type="radio" name="newsletter" value="Hot Fuzz">
+        <span>name?</span>
+    </label>
+</div>
+<div>
+    <label>
+        <input type="radio" name="newsletter" value="Cold Fusion">
+        <span>value?</span>
+    </label>
+</div>
+<div>
+    <label>
+        <input type="radio" name="newsletter" value="Evil Plans" isCorrect=true>
+        <span>value?</span>
+    </label>
+</div>
+
+<script>
+    $( "input[value='Hot Fuzz']" ).next().text( "Hot Fuzz" ); // .next finds next element <span> and inserts text
+    $( "input[value='Cold Fusion']" ).next().text( "Cold Fusion" ); // .next finds next element <span> and inserts text
+    $( "input[isCorrect=true]" ).next().text( "ToadStool!!!" ); // .next finds next element <span> and inserts text
+</script>
+
+</body>
+</html>
