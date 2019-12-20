@@ -19,16 +19,16 @@ function renderQuizQuestionPage() {
     // console.log(`timer.timerValue = ${timer.getTimerValue}`)
     let counter = quizQAObject.questionsRenderCount.count + 1; //define variable counter using getter and add 1 to getter value
     // console.log(`PRIOR TO EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
-    if (timer.getIsTimerRunning === true){ // use getter to pull status flag value to evaluate if there is a timer instance running in processQuestionTimer()
-        window.clearTimeout(timeoutID); // if timer instance currently running as per flag value then kill current timer instance
-        timer.setIsTimerRunning = false; // use setter to set timer status flag to false to indicate timeoutID process not running
-        timer.resetTimerValue = 5; //use setter to set timer value to 10
-    }
+    // if (timer.getIsTimerRunning === true){ // use getter to pull status flag value to evaluate if there is a timer instance running in processQuestionTimer()
+    //     window.clearTimeout(timeoutID); // if timer instance currently running as per flag value then kill current timer instance
+    //     timer.setIsTimerRunning = false; // use setter to set timer status flag to false to indicate timeoutID process not running
+    //     timer.resetTimerValue = 5; //use setter to set timer value to 10
+    // }
     // console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> isTimerRunning === ${timer.getIsTimerRunning}`);
     // console.log(`AFTER EVALUATION IF STATEMENT !TRUE >> getTimerValue === ${timer.getTimerValue}`);
 
-    timeoutID=window.setTimeout("processQuestionTimer();",1000); // call .setTimeout() method and assign process ID to timeoutID
-    timer.setIsTimerRunning = true; // use setter to set isTimer running status flag to true to indicate timer is running
+    // timeoutID=window.setTimeout("processQuestionTimer();",1000); // call .setTimeout() method and assign process ID to timeoutID
+    // timer.setIsTimerRunning = true; // use setter to set isTimer running status flag to true to indicate timer is running
     // console.log(`AFTER CALLING setTimeout("processQuestionTimer();" & setter timer.setIsTimerRunning >> isTimerRunning === ${timer.getIsTimerRunning}`)
 
     $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML()); // refactored this >> moved above conditional and single statement
@@ -48,34 +48,59 @@ function renderQuizQuestionPage() {
     $('#js-questionNumber').text(counter);
     quizQAObject.questionsRenderCount.count=1; // getter increments the counter by 1
     /* when a user clicks on next question button */
+    processQuestionTimer();
     }
 // question timer function vvvv
 // note: this can and should be replaced using a closure for questionCountClock !!!!!
+
 function processQuestionTimer() {  //this function gets/sets the value for the question clock
-    let questionCountClock = timer.getTimerValue; // use getter timer.timerValue to get timerValue for the countdown
+    var clock= 5;
+// debugger;
+    timeoutID=this.setTimeout(function countDown() {
+        // debugger
+        $('#js-questionClockCount').text(clock); //update clock counter on question page
+        debugger;
+        console.log(`countDown clock = ${clock}`);
 
-    console.log(`processQuestionTimer() ran - startTime = ${questionCountClock}`);
-    // console.log(`questionCountClock = ${questionCountClock}`);
-
-    $("#js-questionClockCount").text(questionCountClock); //update clock counter on question page
-    if (questionCountClock === 0){
-        // console.log(`questionClockCount === ${questionCountClock}`);
-        // console.log(`autoAnswer() ran!!`);
-
-        // clearTimeout(processQuestionTimer);
-        window.clearTimeout(timeoutID);
-        timer.setIsTimerRunning = false;
-        timer.resetTimerValue = 10;
-        // console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`);
-        // console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> getTimerValue === ${timer.getTimerValue}`);
-    } else {
-        // setTimer--;
-        // console.log(`questionClockCount === ${questionCountClock}`);
-        timer.setTimerValue = 1; // decrement timer.timerValue by 1
-        // setTimeout(processQuestionTimer,1000);
-        timeoutID=window.setTimeout("processQuestionTimer();",2000);
+        if (clock === 0) {
+            window.clearTimeout(timeoutID);
+        } else {
+            // debugger;
+            clock -= 1;
+            debugger;
+        }
+        // debugger;
+    }, 2000);
+    // timeoutID=window.setTimeout(countDown(),2000);
+    // var timeoutID=window.processQuestionTimer.setTimeout("countDown(clock);",2000);
+// debugger;
     }
-}
+
+    //
+    // let questionCountClock = timer.getTimerValue; // use getter timer.timerValue to get timerValue for the countdown
+    //
+    // console.log(`processQuestionTimer() ran - startTime = ${questionCountClock}`);
+    // // console.log(`questionCountClock = ${questionCountClock}`);
+    //
+    // $("#js-questionClockCount").text(questionCountClock); //update clock counter on question page
+    // if (questionCountClock === 0){
+    //     // console.log(`questionClockCount === ${questionCountClock}`);
+    //     // console.log(`autoAnswer() ran!!`);
+    //
+    //     // clearTimeout(processQuestionTimer);
+    //     window.clearTimeout(timeoutID);
+    //     timer.setIsTimerRunning = false;
+    //     timer.resetTimerValue = 10;
+    //     // console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`);
+    //     // console.log(`INSIDE processQuestionTimer() IF questionCountClock === 0 EVALUATION >> getTimerValue === ${timer.getTimerValue}`);
+    // } else {
+    //     // setTimer--;
+    //     // console.log(`questionClockCount === ${questionCountClock}`);
+    //     timer.setTimerValue = 1; // decrement timer.timerValue by 1
+    //     // setTimeout(processQuestionTimer,1000);
+    //     timeoutID=window.setTimeout("processQuestionTimer();",2000);
+    // }
+// }
 // vvv create object for let timerCount = 15 & create getter / setter for setTimer vvvv
 
 
@@ -310,7 +335,7 @@ function handleSubmitAnswerButton() {
       console.log(isCorrectAnswer)  ;
             const isSelected = radioListInputs.has($("input:checked")); //create const containing the input:checked list item
         console.log(isSelected);
-debugger;
+// debugger;
         // radioListInputs.toggleClass("answer-item:hover"); // note: this kills and background color!!! disable cursor pointer on answer list items
 
         if ($(isCorrectAnswer).attr("id") === $(isSelected).attr("id")) {
