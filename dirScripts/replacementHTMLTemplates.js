@@ -17,7 +17,7 @@ const quizLaunchPageHTML = $(`
     </form>
 </div>
 </div>
-`)
+`);
 
 
 let quizQuestionPageHTML = function () {
@@ -96,9 +96,9 @@ const returnHTML = $(`
     </div>
 </footer>    
 </div>
-`)
+`);
     return returnHTML;
-}
+};
 
 
 const submitAnswerButton = $(`

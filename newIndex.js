@@ -4,7 +4,6 @@
 // quiz App should start with the quizLaunch.html page
 // selecting "Click to Begin!" (submit) button from the start page should render the quizQuestionPage.html (qQP)
 function renderQuizLaunchPage() {
-    // console.log('`renderQuizLaunchPage` ran'); //console function run check
     quizQAObject.questionsRenderCount.resetCounter = 0; // setter to reset the counter to zero
     $("#js-replace-html-wrapper").html(quizLaunchPageHTML); //insert html defined in replacementHTMLTemplates.js file
 }
