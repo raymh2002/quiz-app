@@ -21,7 +21,7 @@ const quizLaunchPageHTML = $(`
 
 
 let quizQuestionPageHTML = function () {
-    const question = quizQAObject.questionList[quizQAObject.questionsRenderCount.count]; //using count getter to pull counter value
+    const question = quizQAObject.questionList[quizQAObject.questionsRenderCount.nextQuestionNumber]; //using count getter to pull counter value
     const answer1 = question.htmlAnswers[0];
     const answer2 = question.htmlAnswers[1];
     const answer3 = question.htmlAnswers[2];

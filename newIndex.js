@@ -4,7 +4,7 @@
 // quiz App should start with the quizLaunch.html page
 // selecting "Click to Begin!" (submit) button from the start page should render the quizQuestionPage.html (qQP)
 function renderQuizLaunchPage() {
-    quizQAObject.questionsRenderCount.resetCounter = 0; // setter to reset the counter to zero
+    quizQAObject.questionsRenderCount.resetQuestionCount = 0; // setter to reset the counter to zero
     $("#js-replace-html-wrapper").html(quizLaunchPageHTML); //insert html defined in replacementHTMLTemplates.js file
 }
 
@@ -16,7 +16,7 @@ function renderQuizLaunchPage() {
 function renderQuizQuestionPage() {
     console.log(`'renderQuizQuestionPage ran'`); // console function run check
     // console.log(`timer.timerValue = ${timer.getTimerValue}`)
-    let counter = quizQAObject.questionsRenderCount.count + 1; //define variable counter using getter and add 1 to getter value
+    let counter = quizQAObject.questionsRenderCount.nextQuestionNumber + 1; //define variable counter using getter and add 1 to getter value
     // console.log(`PRIOR TO EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
     // if (timer.getIsTimerRunning === true){ // use getter to pull status flag value to evaluate if there is a timer instance running in processQuestionTimer()
     //     window.clearTimeout(timeoutID); // if timer instance currently running as per flag value then kill current timer instance
@@ -45,7 +45,7 @@ function renderQuizQuestionPage() {
         // $( "#js-replace-html-wrapper" ).html(quizQuestionPageHTML()); // refactored this >> moved above conditional and single statement// replace html in container on quizLaunchPage.html
     }
     $('#js-questionNumber').text(counter);
-    quizQAObject.questionsRenderCount.count=1; // getter increments the counter by 1
+    quizQAObject.questionsRenderCount.nextQuestionNumber=1; // getter increments the counter by 1
     /* when a user clicks on next question button */
     processQuestionTimer();
     }
@@ -58,7 +58,7 @@ function processQuestionTimer() {  //this function gets/sets the value for the q
     timeoutID=this.setTimeout(function countDown() {
         // debugger
         $('#js-questionClockCount').text(clock); //update clock counter on question page
-        debugger;
+        // debugger;
         console.log(`countDown clock = ${clock}`);
 
         if (clock === 0) {
@@ -66,7 +66,7 @@ function processQuestionTimer() {  //this function gets/sets the value for the q
         } else {
             // debugger;
             clock -= 1;
-            debugger;
+            // debugger;
         }
         // debugger;
     }, 2000);
@@ -233,7 +233,7 @@ function handleNextQuestionSubmitButton() {
         event.stopPropagation();
         // window.clearTimeout(timeoutID);
         // clearTimeout(processQuestionTimer);
-        if (quizQAObject.questionsRenderCount.count <= 10) { // uncomment when code to create submit to handle checked and correct answer logic completed
+        if (quizQAObject.questionsRenderCount.currentQuestionNumber <= 10) { // uncomment when code to create submit to handle checked and correct answer logic completed
             renderQuizQuestionPage();   // uncomment when code to create submit to handle checked and correct answer logic completed
         } else{   // uncomment when code to create submit to handle checked and correct answer logic completed
             renderQuizResultPage();   // uncomment when code to create submit to handle checked and correct answer logic completed

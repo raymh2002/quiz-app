@@ -1,13 +1,13 @@
 const quizQAObject={
     questionsRenderCount:{
-        counter:0, // render question counter >> track current question number
+        currentQuestionNumber:0, // render question currentQuestionNumber >> track current question number
 
-        get count() { return this.counter; },
-        set count(next) {
-            this.counter += next; // increment counter
+        get nextQuestionNumber() { return this.currentQuestionNumber; },
+        set nextQuestionNumber(next) {
+            this.currentQuestionNumber += next; // increment currentQuestionNumber
         },
-        set resetCounter(reset){
-            this.counter = reset; // reset counter to 1
+        set resetQuestionCount(reset){
+            this.currentQuestionNumber = reset; // reset currentQuestionNumber to 1
         }
     },
     questionList:[
@@ -361,19 +361,19 @@ function computeQNumberPropertyName(rndrQsnCount){ return "q" + rndrQsnCount; } 
 // function returnCounter()
 
 console.log(`rndrQsnCount property`);
-console.log(quizQAObject.questionsRenderCount.counter);
+console.log(quizQAObject.questionsRenderCount.currentQuestionNumber);
 let {questionList:qL}=quizQAObject;//destructure quizQAObject & define questionList = qL
 console.log(`qL object`);
 console.log(qL);
 // let {question1:q1}=qL;//destructure quizQAObject>>qL & define questionList = q1
-// let qN=computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter);
+// let qN=computeQNumberPropertyName(quizQAObject.questionsRenderCount.currentQuestionNumber);
 // console.log(`this is ${qN}`)
-// let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.counter)]:eval(`var toad = ${qN}`)}=qL;//destructure quizQAObject>>qL & define questionList = q1
-let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.counter)]:qN}=qL //destructure quizQAObject>>qL & define questionList = q1
+// let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.currentQuestionNumber)]:eval(`var toad = ${qN}`)}=qL;//destructure quizQAObject>>qL & define questionList = q1
+let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.currentQuestionNumber)]:qN}=qL //destructure quizQAObject>>qL & define questionList = q1
 
-// let qN=computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter);
+// let qN=computeQNumberPropertyName(quizQAObject.questionsRenderCount.currentQuestionNumber);
 // console.log(`qN object!!`);
-// console.log([computeQNumberPropertyName(quizQAObject.questionsRenderCount.counter)]);
+// console.log([computeQNumberPropertyName(quizQAObject.questionsRenderCount.currentQuestionNumber)]);
 // console.log(qN);
 // let {htmlAnswers:answers}=quizQAObject.questionList.question1;//destructure quizQAObject & define htmlAnswers = answers
 // let {htmlAnswers:answers}=qN;//destructure quizQAObject>>qL>>q1 & define htmlAnswers = answers
@@ -394,7 +394,7 @@ let {[computeQuestionNumberPropertyName(quizQAObject.questionsRenderCount.counte
 
 // vvv this snippet iterates over each answer in answers vvv
 let i=0;
-console.log(`iterate over answers for question${quizQAObject.questionsRenderCount.counter}`)
+console.log(`iterate over answers for question${quizQAObject.questionsRenderCount.currentQuestionNumber}`)
 for(let answer in answers) {
     i++;
     console.log(answers["answer" + i]);
