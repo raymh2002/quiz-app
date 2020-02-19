@@ -7,7 +7,7 @@ const quizQAObject={
             this.currentQuestionNumber += next; // increment currentQuestionNumber
         },
         set resetQuestionCount(reset){
-            this.currentQuestionNumber = reset; // reset currentQuestionNumber to 1
+            this.currentQuestionNumber = reset; // reset currentQuestionNumber to 0
         }
     },
     questionList:[

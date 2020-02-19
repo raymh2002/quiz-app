@@ -5,7 +5,7 @@
 // selecting "Click to Begin!" (submit) button from the start page should render the quizQuestionPage.html (qQP)
 function renderQuizLaunchPage() {
     quizQAObject.questionsRenderCount.resetQuestionCount = 0; // setter to reset the counter to zero
-    $("#js-replace-html-wrapper").html(quizLaunchPageHTML); //insert html defined in replacementHTMLTemplates.js file
+    $("#js-replace-html-wrapper").html(quizLaunchPageHTML); // insert html defined in replacementHTMLTemplates.js file
 }
 
 // quizQuestionPage.html (qQP) ************
