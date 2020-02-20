@@ -258,83 +258,24 @@ function handleNextQuestionSubmitButton() {
 
 function handleSelectAnswer() {
     console.log(`handler === handleSelectAnswer() ran!`)
-    // $('#js-replace-html-wrapper').on('click','.js-input',function (event) {  // comment this targeting .js-input to create target submit event
         $('#js-replace-html-wrapper').on('focus','.answer-item',function (event) {  // comment this targeting .js-input to create target submit event        event.stopPropagation();
         $('#submit-answer').attr('disabled', false);//   toggle the disabled Submit Answer button to enabled
         $('#submit-answer').addClass('hover-submit'); // add hover to the "Submit Answer" button
-
-    // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
-    // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
-
-
-        // event.preventDefault();  //prevent default submit action but needs to be commented for .on('click') event
-        // event.stopPropagation();
-        // const radioListInputs = $("li"); // create const containing all list items in container
-        // const isCorrectAnswer = radioListInputs.has("input[value='true']"); // create const containing the correct answer list item
-        // const isSelected = radioListInputs.has($("input:checked")); //create const containing the input:checked list item
-        //
-        // if ($(isCorrectAnswer).attr("id") === $(isSelected).attr("id")) {
-        //     console.log($(isCorrectAnswer).prop("id"));
-        //     console.log($(isSelected).prop("id"));
-        //     isCorrectAnswer.css("background-color", "purple"); // change background color of correct answer list item
-        // } else {
-        //     isCorrectAnswer.css("background-color", "blue"); // change background color of selected list item
-        //     isSelected.css("background-color", "gray"); // change background color of selected list item
-        // }
-        // $('js-formSubmitButton-container').html(submitNextQuestion); //changes the form:submit button from "Submit-Answer"to "Next-Question"
     })
 }
 
 
 function handleAnswerFocus() {
     console.log(`handler === handleAnswerFocus() ran!`) ;
-    // $('#js-replace-html-wrapper').on('focus', '.js-input', function (event) {
     $('#js-replace-html-wrapper').on('focus', '.answer-item', function (event) {
         event.stopPropagation();
         console.log(`inside .on('focus') ran!!!`);
-        // $(this).parent().trigger('mouseover');
-
-        // $( "#new" ).click(function() {
-        //     $( "input" ).triggerHandler( "focus" );
-        // });
         console.log($(this));
         console.log($(this).children(":first-child"));
         $(this).css("background-color", "rust");
         $(this).children(":first-child").select();
-        // console.log($(this).parent());
-        // $(this).parent().attr("hover-answer", "focus");
-
-        // $(this).parent().focus(); // this works to highlight list items but will not select the radio buttons
-        // $(this).parent().hover();
-
-
-        // $(this).parent().trigger("onmouseover");
-        // const targetListItem = $(this).parent();
-
-        // $(targetListItem).trigger("hover");
-
-        // $(this).parent().triggerHandler('hover');
-        // console.log($(this).parent());
-        // console.log(`targetListItem: ${targetListItem}`);
-        // console.log(`$(this).parent: ${$(this).parent()}`)
-        //     console.log(`handleAnswerFocus focus event fired!!`);
-        //     console.log($(this));
-        //     const radioInputs = $('.js-input');
-        //     console.log(radioInputs);
-        //     const focusedRadioInput = radioInputs.has('.js-input:checked');
-        //     console.log(`focusedRadioInput = ${$(focusedRadioInput).val()}`);
-        //      const focusedListItem = $(this).parent();
-        //      console.log(`focused radio button: ${focusedListItem}`);
-        //      // const parentLi = $('focusedRadioInput').parent');
-        // // .triggerHandler( "focus" )
-        //      focusedListItem.trigger( "hover" );
     });
 }
-
-// $( "#other" ).click(function() {
-//     $( "#target" ).focus();
-// });
-
 
 function handleAnswerButtonFocus(){
     $('#js-replace-html-wrapper').on('focusin', '.js-input', function(event){
@@ -342,10 +283,7 @@ function handleAnswerButtonFocus(){
         event.stopPropagation();
         console.log('event handler === handleAnswerButtonFocus()');
         console.log(`this === ${this}`);
-        // $(this).css("background-color", "orange");
-        // $(this).parent().css("background-color", "orange");
         $(this).filter(":parent").css("background-color", "orange");
-        // $(this).children(":first-child").select();
         $(this).select();
         }
     );
