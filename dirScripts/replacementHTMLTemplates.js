@@ -21,7 +21,7 @@ const quizLaunchPageHTML = $(`
 
 
 let quizQuestionPageHTML = function () {
-    const question = quizQAObject.questionList[quizQAObject.questionsRenderCount.nextQuestionNumber]; // using count getter to pull counter value
+    const question = quizQAObject.questionList[quizQAObject.questionsRenderCount.nextQuestionNumber]; //using count getter to pull counter value
     const answer1 = question.htmlAnswers[0];
     const answer2 = question.htmlAnswers[1];
     const answer3 = question.htmlAnswers[2];
@@ -43,28 +43,28 @@ const returnHTML = $(`
     <form id="js-questionInProgress">
     <div class="question">Question: ${question.htmlQuestion}</div>
     <ul id="answers-list" class="answers-list">
-        <li tabindex="1" class="answer-item hover-answer" id="li-answer1">  <!--js-correct-answer css class (removed & commented out for js css manipulation)-->
+        <li tabindex="1" class="answer-list-item hover-answer" id="li-answer1">  <!--js-correct-answer css class (removed & commented out for js css manipulation)-->
 <!--            li-Answer1-->
 <!--            <div>-->
                 <input   type="radio" id="answer1" name="answer" value=${answer1.isCorrect} required class="js-input hover-answer"> 
                 <label for="answer1" class="hover-answer">Answer1: ${answer1.text}</label>
 <!--            </div>-->
         </li>
-        <li tabindex="2" class="answer-item hover-answer" id="li-answer2"> <!--  js-incorrect-answer css class (removed & commented out for js css manipulation)-->
+        <li tabindex="2" class="answer-list-item hover-answer" id="li-answer2"> <!--  js-incorrect-answer css class (removed & commented out for js css manipulation)-->
 <!--            li-Answer2-->
 <!--            <div>-->
                 <input   type="radio" id="answer2" name="answer" value=${answer2.isCorrect} class="js-input hover-answer">
                 <label for="answer2" class="hover-answer">Answer2: ${answer2.text}</label>
 <!--            </div>-->
         </li>
-        <li tabindex="3" class="answer-item hover-answer" id="li-answer3"> <!-- results-correct-response-item css class (removed & commented out for js css manipulation)--> 
+        <li tabindex="3" class="answer-list-item hover-answer" id="li-answer3"> <!-- results-correct-response-item css class (removed & commented out for js css manipulation)--> 
 <!--            li-Answer3-->
 <!--            <div>-->
                 <input   type="radio" id="answer3" name="answer" value=${answer3.isCorrect} class="js-input hover-answer">
                 <label for="answer3" class="hover-answer">Answer3: ${answer3.text}</label>
 <!--            </div>-->
         </li>
-        <li tabindex="4" class="answer-item hover-answer" id="li-answer4">
+        <li tabindex="4" class="answer-list-item hover-answer" id="li-answer4">
 <!--            li-Answer4-->
 <!--            <div>-->
                 <input   type="radio" id="answer4" name="answer" value=${answer4.isCorrect} class="js-input hover-answer">
@@ -132,7 +132,7 @@ const quizQAPageHeader = $(`
 `);
 
 const quizQAAnswers = $(`
-        <li class="answer-item js-correct-answer">
+        <li class=answer-list-item js-correct-answer">
 <!--            li-Answer1-->
 <!--            <div>-->
                 <input type="radio" id="answer1" name="answer1" value=${quizQAObject.questionList[0].htmlAnswers[0].isCorrect}  selected=true>

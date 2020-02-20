@@ -176,9 +176,22 @@ function renderQuizReviewPage() {
 //         }
 //     );
 
+function handleStartButtonFocus(){
+    $('#js-replace-html-wrapper').on('focusin', '#start-quiz-submit', function(event){
+        event.preventDefault();  // this stops the default form submission behavior
+        event.stopPropagation();
+        console.log('howdy doody!!');
+        $(this).css("background-color", "orange");
+        // $(this).children(":first-child").select();
+        $(this).select();
+    }
+    );
+}
+
 function handleStartQuizSubmitButton(){ // handles submit button from quizLaunchPage
     console.log(`handleStartQuizSubmitButton() ran!`)
-    $('#js-replace-html-wrapper').on('click', '#start-quiz-submit', function(event){
+
+        $('#js-replace-html-wrapper').on('click', '#start-quiz-submit', function(event){
             event.preventDefault();  // this stops the default form submission behavior
             event.stopPropagation();
             // console.log(`Count: ${quizQAObject.questionsRenderCount.counter}`);
@@ -239,6 +252,19 @@ function handleNextQuestionSubmitButton() {
             renderQuizResultPage();   // uncomment when code to create submit to handle checked and correct answer logic completed
         }   // uncomment when code to create submit to handle checked and correct answer logic completed
 });
+}
+function handleAnswerButtonFocus(){
+    $('#js-replace-html-wrapper').on('focusin', '.js-input', function(event){
+        event.preventDefault();  // this stops the default form submission behavior
+        event.stopPropagation();
+        console.log('humpty dumpty!!');
+        // $(this).css("background-color", "orange");
+        // $(this).parent().css("background-color", "orange");
+        $(this).filter(":parent").css("background-color", "orange");
+        // $(this).children(":first-child").select();
+        $(this).select();
+        }
+    );
 }
 
 function handleAnswerFocus() {
@@ -361,15 +387,24 @@ function handleQuizApp() {
     // renderQuizQuestionPage();
     // renderQuizResultPage();
     // renderQuizReviewPage();
+
+    // vvvv start quiz button listeners vvvv
     handleStartQuizSubmitButton(); //loads first question page and calls handleNextQuestionSubmitButton();
+    // handleStartButtonFocus();
+
+    // vvvv answer select listeners on question page vvvv
     handleSelectAnswer();
+    handleAnswerFocus();
+    handleAnswerButtonFocus();
+
+    // vvvv submit button listeners on question page vvvv
     handleSubmitAnswerButton();
     handleNextQuestionSubmitButton();
-    handleAnswerFocus();
+
 }
 
 
-$(handleQuizApp);
+$(handleQuizApp); // on load listener >> launch application listeners
 
 
 // $(function () {

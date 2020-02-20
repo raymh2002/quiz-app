@@ -38,6 +38,10 @@ fieldset {
     background-color: dodgerblue;
 }
 
+/*.start-quiz-submit:focusin {*/
+/*    background-color: red;*/
+/*}*/
+
 
 
 
@@ -97,13 +101,16 @@ fieldset {
     padding-left: 0;
 }
 
-.answer-item {
+.answer-list-item {
     width: 95%;
     border: 1px solid grey;
     padding: 20px;
     margin-bottom: 20px;
 }
 
+/*.answer-item:focus {*/
+/*    background-color:orange;*/
+/*}*/
 /*.answer-item > div > input {*/
 /*    display: none;*/
 /*!*  visibility: hidden  *!*/
