@@ -4,6 +4,7 @@
 // quiz App should start with the quizLaunch.html page
 // selecting "Click to Begin!" (submit) button from the start page should render the quizQuestionPage.html (qQP)
 function renderQuizLaunchPage() {
+    console.log(`function renderQuizLaunchPage() called from handleQuizApp() ran!`);
     quizQAObject.questionsRenderCount.resetQuestionCount = 0; // setter to reset the counter to zero
     $("#js-replace-html-wrapper").html(quizLaunchPageHTML); // insert html defined in replacementHTMLTemplates.js file
 }
@@ -14,7 +15,7 @@ function renderQuizLaunchPage() {
 
 
 function renderQuizQuestionPage() {
-    console.log(`'renderQuizQuestionPage ran'`); // console function run check
+    console.log(`renderQuizQuestionPage() called from handleStartQuizSubmitButton() ran !`); // console function run check
     // console.log(`timer.timerValue = ${timer.getTimerValue}`)
     let counter = quizQAObject.questionsRenderCount.nextQuestionNumber + 1; //define variable counter using getter and add 1 to getter value
     // console.log(`PRIOR TO EVALUATION >> isTimerRunning === ${timer.getIsTimerRunning}`)
@@ -139,7 +140,7 @@ let timer = {
 // qRP should include a "Review Answers" submit button which will render the quizAnswerReview.html (qAR) page
 // qRP should include a "Retake Quiz" submit button  >> OR change to ONLY >> "Review Answers" ????
 function renderQuizResultPage() {
-    console.log('`renderQuizResultPage` ran');
+    console.log(`called function renderQuizResultPage ran`);
     $( "#js-replace-html-wrapper" ).html(quizResultPageHTML); // replace html in container on quizLaunchPage.html
 }
 
@@ -180,8 +181,8 @@ function handleStartButtonFocus(){
     $('#js-replace-html-wrapper').on('focusin', '#start-quiz-submit', function(event){
         event.preventDefault();  // this stops the default form submission behavior
         event.stopPropagation();
-        console.log('howdy doody!!');
-        $(this).css("background-color", "orange");
+        console.log('handler === handleStartButtonFocus() focusin event on #start-quiz-submit');
+        // $(this).css("background-color", "orange");
         // $(this).children(":first-child").select();
         $(this).select();
     }
@@ -189,7 +190,7 @@ function handleStartButtonFocus(){
 }
 
 function handleStartQuizSubmitButton(){ // handles submit button from quizLaunchPage
-    console.log(`handleStartQuizSubmitButton() ran!`)
+    console.log(`handler === handleStartQuizSubmitButton() ran!`)
 
         $('#js-replace-html-wrapper').on('click', '#start-quiz-submit', function(event){
             event.preventDefault();  // this stops the default form submission behavior
@@ -231,7 +232,7 @@ function handleStartQuizSubmitButton(){ // handles submit button from quizLaunch
 
 
 function handleNextQuestionSubmitButton() {
-    // console.log(`handleNextQuestionSubmitButton() ran!`);
+    console.log(`handler === handleNextQuestionSubmitButton() ran!`);
     // $('#next-question').on("click", event => {
     //     event.preventDefault();  // this stops the default form submission behavior
     //     event.stopPropagation();
@@ -257,8 +258,11 @@ function handleNextQuestionSubmitButton() {
 
 
 function handleSelectAnswer() {
-    console.log(`handler === handleSelectAnswer() ran!`)
-        $('#js-replace-html-wrapper').on('focus','.answer-item',function (event) {  // comment this targeting .js-input to create target submit event        event.stopPropagation();
+    console.log(`handler === handleSelectAnswer() ran!`);
+        $('#js-replace-html-wrapper').on('focus','.answer-list-item',function (event) {  // comment this targeting .js-input to create target submit event
+        event.preventDefault();  // this stops the default form submission behavior
+        event.stopPropagation();
+        console.log(`handler === handleSelectAnswer() focus event on .answer-list-item fired!`);
         $('#submit-answer').attr('disabled', false);//   toggle the disabled Submit Answer button to enabled
         $('#submit-answer').addClass('hover-submit'); // add hover to the "Submit Answer" button
     })
@@ -267,23 +271,28 @@ function handleSelectAnswer() {
 
 function handleAnswerFocus() {
     console.log(`handler === handleAnswerFocus() ran!`) ;
-    $('#js-replace-html-wrapper').on('focus', '.answer-item', function (event) {
+    $('#js-replace-html-wrapper').on('focus', '.answer-list-item', function (event) {
+        event.preventDefault();  // this stops the default form submission behavior
         event.stopPropagation();
-        console.log(`inside .on('focus') ran!!!`);
-        console.log($(this));
-        console.log($(this).children(":first-child"));
+        console.log(`handler === handleAnswerFocus() focus event on .answer-list-item fired!`);
+        // console.log(`inside .on('focus') ran!!!`);
+        console.log(`this === ${this}`);
+        console.log(`${$(this).children(":first-child")}`);
         $(this).css("background-color", "rust");
-        $(this).children(":first-child").select();
+        // $(this).children(":first-child").select();
+
+        $(this).children(":first-child").prop("checked", true).trigger("click");
     });
 }
 
 function handleAnswerButtonFocus(){
+    console.log(`handler === handleAnswerButtonFocus() ran!`);
     $('#js-replace-html-wrapper').on('focusin', '.js-input', function(event){
         event.preventDefault();  // this stops the default form submission behavior
         event.stopPropagation();
-        console.log('event handler === handleAnswerButtonFocus()');
+        console.log('event handler === handleAnswerButtonFocus() focusin event on .js-input fired!');
         console.log(`this === ${this}`);
-        $(this).filter(":parent").css("background-color", "orange");
+        $(this).filter(":parent").css("background-color", "yellow");
         $(this).select();
         }
     );
@@ -293,7 +302,7 @@ function handleAnswerButtonFocus(){
 
 
 function handleSubmitAnswerButton() {
-
+    console.log(`handler === handleSubmitAnswerButton() ran!`);
     // $('#js-replace-html-wrapper').on('click','.js-input',function (event) {  // comment this targeting .js-input to create target submit event
     // $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) {
     $('#js-replace-html-wrapper').on('submit','#js-questionInProgress',function (event) { //submit event on form id=js-questionInProgress
@@ -307,7 +316,7 @@ function handleSubmitAnswerButton() {
             const isSelected = radioListInputs.has($("input:checked")); //create const containing the input:checked list item
         console.log(isSelected);
 // debugger;
-        // radioListInputs.toggleClass("answer-item:hover"); // note: this kills and background color!!! disable cursor pointer on answer list items
+        // radioListInputs.toggleClass("answer-list-item:hover"); // note: this kills and background color!!! disable cursor pointer on answer list items
 
         if ($(isCorrectAnswer).attr("id") === $(isSelected).attr("id")) {
             console.log($(isCorrectAnswer).prop("id"));
@@ -339,9 +348,9 @@ function handleQuizApp() {
     // handleStartButtonFocus();
 
     // vvvv answer select listeners on question page vvvv
-    handleSelectAnswer();
+    // handleSelectAnswer();
     handleAnswerFocus();
-    handleAnswerButtonFocus();
+    // handleAnswerButtonFocus();
 
     // vvvv submit button listeners on question page vvvv
     handleSubmitAnswerButton();
