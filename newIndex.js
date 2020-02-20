@@ -253,71 +253,11 @@ function handleNextQuestionSubmitButton() {
         }   // uncomment when code to create submit to handle checked and correct answer logic completed
 });
 }
-function handleAnswerButtonFocus(){
-    $('#js-replace-html-wrapper').on('focusin', '.js-input', function(event){
-        event.preventDefault();  // this stops the default form submission behavior
-        event.stopPropagation();
-        console.log('humpty dumpty!!');
-        // $(this).css("background-color", "orange");
-        // $(this).parent().css("background-color", "orange");
-        $(this).filter(":parent").css("background-color", "orange");
-        // $(this).children(":first-child").select();
-        $(this).select();
-        }
-    );
-}
-
-function handleAnswerFocus() {
-    console.log(`handleAnswerFocus ran`) ;
-    // $('#js-replace-html-wrapper').on('focus', '.js-input', function (event) {
-        $('#js-replace-html-wrapper').on('focus', '.answer-item', function (event) {
-            event.stopPropagation();
-            console.log(`inside .on('focus') ran!!!`);
-            // $(this).parent().trigger('mouseover');
-
-            // $( "#new" ).click(function() {
-            //     $( "input" ).triggerHandler( "focus" );
-            // });
-            console.log($(this));
-            console.log($(this).children(":first-child"));
-            $(this).css("background-color", "rust");
-            $(this).children(":first-child").select();
-            // console.log($(this).parent());
-            // $(this).parent().attr("hover-answer", "focus");
-
-            // $(this).parent().focus(); // this works to highlight list items but will not select the radio buttons
-            // $(this).parent().hover();
 
 
-            // $(this).parent().trigger("onmouseover");
-            // const targetListItem = $(this).parent();
-
-            // $(targetListItem).trigger("hover");
-
-            // $(this).parent().triggerHandler('hover');
-            // console.log($(this).parent());
-            // console.log(`targetListItem: ${targetListItem}`);
-            // console.log(`$(this).parent: ${$(this).parent()}`)
-            //     console.log(`handleAnswerFocus focus event fired!!`);
-            //     console.log($(this));
-            //     const radioInputs = $('.js-input');
-            //     console.log(radioInputs);
-            //     const focusedRadioInput = radioInputs.has('.js-input:checked');
-            //     console.log(`focusedRadioInput = ${$(focusedRadioInput).val()}`);
-            //      const focusedListItem = $(this).parent();
-            //      console.log(`focused radio button: ${focusedListItem}`);
-            //      // const parentLi = $('focusedRadioInput').parent');
-            // // .triggerHandler( "focus" )
-            //      focusedListItem.trigger( "hover" );
-        });
-    }
-
-// $( "#other" ).click(function() {
-//     $( "#target" ).focus();
-// });
 
 function handleSelectAnswer() {
-
+    console.log(`handler === handleSelectAnswer() ran!`)
     // $('#js-replace-html-wrapper').on('click','.js-input',function (event) {  // comment this targeting .js-input to create target submit event
         $('#js-replace-html-wrapper').on('focus','.answer-item',function (event) {  // comment this targeting .js-input to create target submit event        event.stopPropagation();
         $('#submit-answer').attr('disabled', false);//   toggle the disabled Submit Answer button to enabled
@@ -344,6 +284,74 @@ function handleSelectAnswer() {
         // $('js-formSubmitButton-container').html(submitNextQuestion); //changes the form:submit button from "Submit-Answer"to "Next-Question"
     })
 }
+
+
+function handleAnswerFocus() {
+    console.log(`handler === handleAnswerFocus() ran!`) ;
+    // $('#js-replace-html-wrapper').on('focus', '.js-input', function (event) {
+    $('#js-replace-html-wrapper').on('focus', '.answer-item', function (event) {
+        event.stopPropagation();
+        console.log(`inside .on('focus') ran!!!`);
+        // $(this).parent().trigger('mouseover');
+
+        // $( "#new" ).click(function() {
+        //     $( "input" ).triggerHandler( "focus" );
+        // });
+        console.log($(this));
+        console.log($(this).children(":first-child"));
+        $(this).css("background-color", "rust");
+        $(this).children(":first-child").select();
+        // console.log($(this).parent());
+        // $(this).parent().attr("hover-answer", "focus");
+
+        // $(this).parent().focus(); // this works to highlight list items but will not select the radio buttons
+        // $(this).parent().hover();
+
+
+        // $(this).parent().trigger("onmouseover");
+        // const targetListItem = $(this).parent();
+
+        // $(targetListItem).trigger("hover");
+
+        // $(this).parent().triggerHandler('hover');
+        // console.log($(this).parent());
+        // console.log(`targetListItem: ${targetListItem}`);
+        // console.log(`$(this).parent: ${$(this).parent()}`)
+        //     console.log(`handleAnswerFocus focus event fired!!`);
+        //     console.log($(this));
+        //     const radioInputs = $('.js-input');
+        //     console.log(radioInputs);
+        //     const focusedRadioInput = radioInputs.has('.js-input:checked');
+        //     console.log(`focusedRadioInput = ${$(focusedRadioInput).val()}`);
+        //      const focusedListItem = $(this).parent();
+        //      console.log(`focused radio button: ${focusedListItem}`);
+        //      // const parentLi = $('focusedRadioInput').parent');
+        // // .triggerHandler( "focus" )
+        //      focusedListItem.trigger( "hover" );
+    });
+}
+
+// $( "#other" ).click(function() {
+//     $( "#target" ).focus();
+// });
+
+
+function handleAnswerButtonFocus(){
+    $('#js-replace-html-wrapper').on('focusin', '.js-input', function(event){
+        event.preventDefault();  // this stops the default form submission behavior
+        event.stopPropagation();
+        console.log('event handler === handleAnswerButtonFocus()');
+        console.log(`this === ${this}`);
+        // $(this).css("background-color", "orange");
+        // $(this).parent().css("background-color", "orange");
+        $(this).filter(":parent").css("background-color", "orange");
+        // $(this).children(":first-child").select();
+        $(this).select();
+        }
+    );
+}
+
+
 
 
 function handleSubmitAnswerButton() {
